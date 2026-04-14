@@ -1,0 +1,1021 @@
+"Productos, Solicitud de productos pasivos > Validación previa a la elección de producto , , HU0036 -  Validación previa a la elección de producto pasivo, Cliente activo , Como usuario nuevo deseo solicitar un producto financiero pasivo,
+quiero ingresar mis datos básicos de contacto e identificación,
+para que el sistema pueda verificar mi identidad antes de elegir un producto pasivo. , Captura de datos de identificación del cliente:
+ - Dado que soy un usuario sin una cuenta en la app SURGIR y selecciono la opción Hacerme cliente > Quiero hacer crecer mis ahorros > Abrir cuenta. El sistema me muestra la vista inicial para la solicitud de producto pasivo que incluye ilustración en la parte superior, label o título ""Solicita tu cuenta en minutos"", listado de 3 beneficios con íconos representativos: apertura rápida, tasa TREA y respaldo Santander, el aviso informativo de que debe contar con su documento de identidad a la mano y el botón Empezar. 
+ - Dado que selecciono la opción Empezar, el sistema debe mostrar una pantalla de carga intermedia que: muestra el indicador visual de carga (spinner) centrado en pantalla mantiene el encabezado con el logo de SURSIR y Santander Microfinanzas visible durante la carga.
+ - Una vez finalizada la carga el sistema muestra la vista para poder ingresar los datos del usuario(Tipo de documento, celular, correo electrónico, autorización de tratamiento de datos y re captcha.)
+ - Dado que el usuario selecciona en la lista desplegable Tipo de documento, el sistema muestra DNI, CE y PAS:
+Selección de tipo de documento:
+ - Dado que selecciono el dropdown de tipo de documento, el sistema me muestra las tres opciones: DNI (Documento Nacional de Identidad) - seleccionado por defecto, CE (Carné de Extranjería) y PAS (Pasaporte). 
+Validación de formato DNI:
+ - Dado que he seleccionado ""DNI"" como tipo de documento cuando ingreso mi número de DNI, el sistema muestra teclado numérico, Acepta únicamente 8 dígitos numéricos, muestra el número ingresado en el campo, no habilita navegación hasta completar los 8 dígitos.
+Validación de formato CE:
+ - Dado que he seleccionado ""CE"" como tipo de documento cuando ingreso mi número de CE, el sistema muestra teclado numérico, Acepta únicamente 9 dígitos numéricos, muestra el número ingresado en el campo, no habilita navegación hasta completar los 9 dígitos
+Validación de formato Pasaporte:
+ - Dado que he seleccionado ""PAS"" como tipo de documento cuando ingreso mi número de pasaporte, el sistema muestra teclado alfanumérico, Acepta entre 6 y 20 caracteres alfanuméricos, muestra el número ingresado en el campo valida longitud mínima y máxima. No habilita la navegación hasta completar el mínimo de caracteres.
+ Consentimiento de tratamiento de datos:
+ - Otorgar el consetimiento de datos no será considerado obligatorio. Revisar |HU00 - Tratamiento de mis datos para fines comerciales y/o publicitarios.|
+Número de celular y correo:
+ - El campo celular, debe aceptar 9 dígitos numéricos
+ - El campo correo debe contener la validación de formato de correo,  ejemplo: * ** xyz@gmail.com.
+Botón ""Siguiente"": 
+ - Para activar el botón Siguiente será considerado obligatorio el ingreso del número de documento, celular, correo electrónico y el re captcha. 
+  - Dado que ingresé los datos obligatorios y selecciono el botón Siguiente, el usuario avanza y el sistema procede a realizar la validación de OTP. Revisar |HU HIJAS|.
+ - Una vez el usuario finaliza con la validación del OTP, el sistema muestra el sistema un catálogo de productos financieros organizados en dos categorías mediante tabs: Depósitos a plazo y Cuentas de ahorro. Cada producto se muestra como una tarjeta con imagen, nombre, descripción, tasa referencial y enlace a más detalle. El usuario debe seleccionar un producto para poder continuar.,  - En caso exista interrupción por falta de conexión y realizo algún evento de click o interacción con la app, el sistema debe mostrar un modal con el mensaje de error ""No estás conectado a internet conéctate a una red y vuelve a intentarlo"" y el botón Entendido. Al ser seleccionada esta opción el sistema cierra el modal  y se mantiene en la vista interrumpiendo el proceso. El sistema espera la conectividad a internet para continuar con el proceso, una vez transcurrido el tiempo por falta de inactividad, el sistema finaliza el proceso sin éxito. Obliga al usuario a iniciar. Definir tiempo de inactividad que debe soportar el sistema.  
+ - Trazabilidad: El sistema debe capturar la cantidad de veces que el usuario está intentando aceptar los Términos y condiciones de uso ya sea con o sin éxito, la versión del contenido de los TyC esto asociado al dispositivo y geolocalización en caso el usuario tiene permitido o activado la captura de la geolocalización desde su dispositivo."
+"Productos, Productos pasivos > Solicitud y apertura de cuenta simple, , HU0037 - Creaciòn de cuenta simple, Cliente activo , Como cliente nuevo o existente de SURGIR, quiero abrir una cuenta de ahorros desde la app móvil completando mi información personal, declarando el origen de mis fondos y seleccionando la moneda de mi preferencia, para tener una cuenta activa sin necesidad de acudir a una agencia., Escenario 1: Solicitud de cuenta de ahorro como usuario sin cuenta en Surgir: 
+Elección de producto pasivo:
+ - Dado que me encuentro en la visualización de los productos pasivos y selecciono el tab cuenta de ahorro > tarjeta cuenta de ahorro simple, el sistema activa el botón ""Siguiente"". 
+ - Dado que selecciono el botón ""Conoce más"" dentro de la tarjeta ""Cuenta de ahorro simple"", el sistema despliega una vista hacia arriba, vista que incluye imagen, lista de caracteristicas del producto y las opciones ""Cerrar"", ""Seleccionar"". En caso seleccione la opción Cerrar el sistema cierra el modal mostrando la vista anteior con su estado actual. 
+ - Dado que selecciono la opción ""Seleccionar"", el sistema cierra el modal y muestra la vista anterior von la tarjeta seleccionada por ende con el botón ""Siguiente"" activa. 
+ - Dado que selecciono la opción ""Siguiente"", el sistema muestra una vista que me permita seleccionar el tipo de moneda. 
+ - Dado que selecciono la opción ""Me interesa"", el sistema muestra la vista para poder seleccionar la moneda de la cuenta ya sea en soles o en dólares. Se presentan dos opciones de moneda claramente diferenciadas: Soles (S/) y Dólares (US$).
+ - Cuando selecciono una opción mediante tap; la opción seleccionada se marca visualmente como activa con ícono de check.
+ - Solo se puede seleccionar una moneda a la vez. El botón ""Siguiente"" se habilita solo cuando hay una moneda seleccionada.
+ - Dado que selecciono un tipo de moneda y selecciono el botón ""Siguiente"", el usuario avanza y el sistema muestra la vista para confirmar Si desempeñé los últimos 2 años en el Perú o en el extranjero un cargo importante en una organización internacional con las opciones de Si o No, Opción con lista desplegable para seleccionar el origen de los fondos a abonar. 
+Sección indicativo de que la información es de carácter declaratorio. 
+ - En caso dentro del la lista desplegable Origen de los fondos a abonar selecciono la opción ""Otro"", el sistema habilita una caja de texto mostrando un contador en formato ""[caracteres_ingresados]/350”. que permite ingresar un origen diferente a las que ya se encuentran confirguradas. 
+ - Una vez seleccione una opción de SI o NO y el origen de fondo, el sistemas activa el botón Siguiente.(Ambos campos considerados obligatorios)
+ - En caso selecciono la opción Si en la sección desempeñé los últimos 2 años en el Perú o en el extranjero un cargo importante en una organización internacional y el botón Siguiente, el sistema  muestra la vista con el siguiente mensaje ""No podemos atenderte por este canal"" incluido el botón Continuar con un ejecutivo. PENDIENTE DE DISEÑO CUANDO SE SELECCIONA LA OPCIÓN CONTINUAR CON UN EJECUTIVO. 
+ - Dado que selecciono la opción No en la sección desempeñé los últimos 2 años en el Perú o en el extranjero un cargo importante en una organización internacional y el botón Siguiente, el usuario avanza y el sistema muestra  vista de inicialización del proceso de biometría. Revisar |HU009 - Cliente Sin clave > Almacenamiento de datos biométricos.|. 
+ - Una vez el sistema valida la autorización de datos biométricos, el usuario y el usuario muestra la vista inicial para la validación biométrica. Revisar |HU010 - Cliente Sin clave > captura de documento de identidad.|.
+ - Una vez el sistema finaliza la validación de la captura de documento de identidad, el usuario avanza e inicializa la validación de biometría facial. Revisar |HU0011 - Cliente Sin clave > captura de biometría facial.|. 
+validación con GESINTEL:
+ - Una vez se finaliza con la validación biométrica, el usuario avanza y el sistema realiza la validación con GESINTEL(Listas PEP, Listas negras, FLAFT) si se tiene una respuesta positiva de manera exitosa, el usuario avanza y muestra la vista con la visualización de mi nombre completo, fecha de nacimiento y genero. Adicionalmente, campos para poder completar. En caso la validación con GESINTEL se tiene una respuesta negativa entonces el sistema muestra un mensaje de error: ""No podemos atenderte por este canal"" y la opciòn ""Continuar con un ejecutivo"". Pendiente de diseño cuando se selecciona la opción Continuar con un ejecutivo. 
+Confirmación de información personal:
+ - Los campos a completar serán los siguientes: lista desplegable Estado civil, lista desplegable Ocupación, Datos del domicilio: Lista desplegable Departamento, provincia, distrito y tipo de vía, campo Nombre vía, Barrio/Urbanización(opcional), Número de exterior, Número de interior(opcional) y referencia(opcional) incluido el botón Siguiente inicialmente en gris, una vez ingresado los datos considerados obligatorios, esto se activa. 
+Confirmación de correo electrónico:
+ - Dado que selecciono la opción ""Siguiente"", el usuario avanza y el sistema muestra la vista para confirmar su correo, con el celular y el correo precargado.
+ - Dado que ingreso mi correo en el campo Confirmar correo electrónico y selecciono la opción ""Siguiente"" el sistema realiza la validación de coincidencia con el correo electrónico. En caso no exista coincidencia el sistema muestra un mensaje de error: PENDIENTE DE DISEÑO. 
+ - Si existe coincidencia de correo y cumple con el formato que corresponde, el usuario avanza y el sistema muestra la vista ""Confirma tu solicitud"" que incluye resumen de la cuenta, Sección de aceptación de términos y condiciones del contrato de cuenta de ahorro y la opción ""Terminar solicitud"".
+ - Para la gestión de los términos y condiciones del contrato de cuenta Revisar |HU0039 - Términos y condiciones del contrato de cuenta de ahorro simple|.
+Confirmación final:
+  - Dado que me encuentro en la vista del resumen de la cuenta y selecciono la opción Terminar solicitud, el usuario avanza y el sistema muestra la vista de confirmación de solicitud que contempla lo siguiente: El título “¡Felicidades, [Nombre]!”, El subtítulo “Recibimos tu solicitud”, El texto “Solicitud N° [código de solicitud]”. Sección “Siguientes pasos"" con: 
+ * Paso 1 “Registraste tu solicitud”,
+indicando que se envió el detalle de la solicitud al correo registrado del cliente, incluyendo el correo en el texto. 
+ * Paso 2 ""Abona el monto de apertura"" Indicando que recibirá un correo con las instrucciones y nuestro número de cuenta corriente para que el usuario realice el abono del monto de apertura, según nuestro horario de atención. 
+ * Paso 3 “Apertura de cuenta”,
+indicando que una vez abonado, revisaremos tu solicitud, abriremos tu cuenta y te enviaremos los contratos a tu correo. Asimismo, incluye. Sección de Escala de recomendación (NPS) 
+“¿Considerando este proceso de apertura de cuenta, qué tan probable es que recomiendes a SURGIR a un amigo o familiar?” 
+con una escala de selección de 1 a 10, donde solo se puede seleccionar un valor a la vez, Campo con lista desplegable para la pregunta: “¿Cómo te enteraste de la Cuenta de Ahorro simple?” permitiendo seleccionar una de las opciones configuradas, campo de texto para responder “¿Por qué?” permitiendo ingresar hasta 500 caracteres, mostrando un contador en formato ""[caracteres_ingresados]/500”, la sección de contacto con el texto “Comunícate con nosotros a través de:"" seguida de tarjetas con canales de contacto, que incluyen al menos: Un ejecutivo de banca (nombre y número de teléfono), una dirección de oficina y un número para contactarse con algún asesor. Además Incluye el botón ""Enviar respuesta"".
+ - Dado que el botón “Enviar respuesta” se muestra inicialmente deshabilitado. Una vez ingrese los tres datos(""¿Selección de como te enteraste del depósito a plazo?"", ""¿Considerando este proceso, que tan probable es que recomiendes a SURGIR  a un amigo o familiar?"", ""¿Por qué?"") se activa el botón ""Enviar respuesta"". Dado que selecciono esta opción el sistema muestra un mensaje de confirmación del envio de la encuenta. PENDIENTE DE DISEÑO. 
+
+Escenario 2: Solicitud de cuenta de ahorro como usuario con cuenta en Surgir desde Home:
+Vista Inicial:
+ - Dado que selecciono la opción Cuenta de ahorro simple en la sección para ti o en el Home. El sistema muestra la vista creación de cuenta que incluye imagen o ilustración titulo Cuenta de ahorro simple, listado de características informativo que tiene el producto y el botón Me interesa.
+ - Dado que selecciono la opción ""Me interesa"", el sistema muestra la vista para poder seleccionar la moneda de la cuenta ya sea en soles o en dólares. Se presentan dos opciones de moneda claramente diferenciadas: Soles (S/) y Dólares (US$). Incluye sección informativa sobre carácter de la información y el botón Continuar en gris.
+ - Cuando selecciono una opción mediante tap; la opción seleccionada se marca visualmente como activa con ícono de check.
+ - Solo se puede seleccionar una moneda a la vez. El botón ""Continuar"" se habilita solo cuando hay una moneda seleccionada.
+ - Dado que selecciono un tipo de moneda y  el botón ""Continuar"", el usuario avanza y el sistema muestra la vista para confirmar Si desempeñé los últimos 2 años en el Perú o en el extranjero un cargo importante en una organización internacional con las opciones de Si o No, Sección indicativo de que la información es de carácter declaratorio. 
+ - Una vez seleccione una opción de SI o NO y el origen de fondo, el sistemas activa el botón Continuar.
+ - En caso selecciono la opción Si en la sección desempeñé los últimos 2 años en el Perú o en el extranjero un cargo importante en una organización internacional y el botón Continuar, el sistema  muestra la vista con el siguiente mensaje ""No podemos atenderte por este canal"" incluido el botón Continuar con un ejecutivo. PENDIENTE DE DISEÑO CUANDO SE SELECCIONA LA OPCIÓN CONTINUAR CON UN EJECUTIVO. 
+ - Dado que selecciono la opción No en la sección desempeñé los últimos 2 años en el Perú o en el extranjero un cargo importante en una organización internacional y el botón Continuar, el usuario avanza y el sistema procede a realizar una validación con GESINTEL(Listas PEP, Listas negras, FLAFT). 
+validación con GESINTEL:
+ - En caso la validación com GESINTEL se tiene una respuesta positiva de manera exitosa, el usuario avanza y muestra la vista ""Confirma tu solicitud"" que incluye resumen de la cuenta, Sección de aceptación de términos y condiciones del contrato de cuenta de ahorro y la opción ""Aceptar"".
+ - Para la gestión de los términos y condiciones del contrato de cuenta Revisar |HU0039 - Términos y condiciones del contrato de cuenta de ahorro simple|.
+Confirmación final:
+ - Dado que me encuentro en la vista del resumen de la cuenta y selecciono la opción Aceptar, el usuario avanza y el sistema muestra la vista de confirmación de la cuenta creada que contempla lo siguiente: El título “¡Felicidades, [Nombre]!”, El subtítulo “Cuenta de ahorro en [tipo de moneda] creada”, Sección informativa de que los documentos contractuales será enviada al correo, Sección de contacto con el texto Título ""¿Tienes dudas?"" y “Comunícate con nosotros a través de:"" tarjetas con canales de contacto, que incluyen al menos: Un ejecutivo de banca (nombre y número de teléfono), una dirección de oficina y un número para contactarse con algún asesor. Finalmente el botón volver al inicio que al ser seleccionada, el sistema redirige al home. ,  - El cliente podrá aperturar una cuenta simple tanto dentro como fuera de la aplicación.
+ - El tiempo máximo de carga cuando cambia de vista no debe exceder los 3 segundos. Si la carga supera los 3 segundos, se muestra un mensaje de error o reintento. PENDIENTE DE DISEÑO.
+ - La aceptación de los términos y condiciones del contrato de cuenta de ahorro se debe considerar obligatorio. 
+ - Los clientes que declaran ""Otros"" como origen de fondos deben ser objeto de una revisión adicional por el oficial de cumplimiento PLAFT de SURGIR, ya que esta respuesta puede indicar un origen de fondos que no encaja en las categorías estándar de riesgo bajo. ¿Considerar algùn tiempo de demora para poder habilitar la cuenta?
+ - Si el cliente declara ser PEP, el sistema debe activar automáticamente una alerta y enrutar la apertura de cuenta hacia una aprobación manual por el área de Cumplimiento antes de activarla. 
+ - La cuenta no puede activarse automáticamente para clientes PEP bajo ninguna circunstancia. El proceso de aprobación manual para clientes PEP puede tomar entre 24 y 72 horas hábiles y puede requerir documentación adicional. Esto debe comunicarse claramente al cliente en la pantalla correspondiente. Para esto el sistema debe mostrar la opciòn de Continuar con un ejecutivo. PENDIENTE DE DISEÑO AL SELECCIONAR ESTA OPCIÒN. 
+ - No existirà un limite de cuentas simple para un cliente, al momento de ser creado. 
+ - Antes de aperturar la cuenta, una vez se finalice con el proceso de validaciòn biomètrica el sistema debe pasar por la validaciòn de GESINTEL y lista negra, en caso la respuesta es negativo el sistema debe mostrar una vista que contemple el siguiente mensaje: ""No podemos atenderte por este canal"" y la opciòn ""Continuar con un ejecutivo"". Pendiente de diseño cuando se selecciona la opción Continuar con un ejecutivo. 
+ - Una cuenta abierta por canal digital debe quedar operativa de forma inmediata para recibir abonos desde el momento en que se genera el número de cuenta. 
+ - DEFINIR CRITERIO DE ASIGNACIÒN DE UN EJECUTIVO A UN CLIENTE.
+ - La secciòn de call center para este producto debe ser configurable en el sistema de gestión de contenidos ya que los horarios de atención pueden cambiar por feriados, emergencias o decisiones operativas. El sistema no debe tener estos datos hardcodeados en el código.
+ - Una vez el usuario finaliza con la solicitud y/o apertura de la cuenta simple, el sistema envia un correo al usuario con la información dependiendo del caso, Solicitud de cuenta desde login y Apertura de cuenta desde el home. 
+ - En caso exista interrupción por falta de conexión y realizo algún evento de click o interacción con la app, el sistema debe mostrar un modal con el mensaje de error  interrumpiendo el proceso, mensaje de error: ""No estás conectado a internet conéctate a una red y vuelve a intentarlo"" y el botón Entendido. Al ser seleccionada esta opción el sistema cierra el modal  y redirige al Login. 
+ - Trazabilidad: El sistema captura las interacciones que tendrá el usuario para determinar las actividades frecuentes del usuario. 
+"
+"Productos, Productos pasivos > Solicitud de cuenta simple>Tratamiento de datos para fines comerciales., , HU0038 - Tratamiento de datos para fines comerciales., Cliente activo , Como cliente nuevo, quiero poder otorgar el tratamiento de mis datos para fines comerciales y/o publicitarios mediante un check box con información desplegable para conocer los detalles de la política antes de dar mi consentimiento de manera informada., Validación de tratamiento de datos para fines comerciales:
+ - Dado que estoy en la vista de ingreso de mis primeros datos, el sistema me muestra un checkbox desmarcado con el texto ""Autorizo el tratamiento de mis datos para finer comerciales y/o publicitarios."" aparece en negrita y es clickeable.
+ - Dado que puedo visualizar el texto del checkbox, cuando hago clic en la frase en negrita, el sistema despliega un panel informativo que se desliza desde la parte inferior hacia arriba de forma animada (transición suave).
+ - Cuando este se despliega completamente entonces debe mostrar el contenido completo de la política de tratamiento de datos con formato legible (párrafos, espaciado adecuado), vista scrolleable. Incluirá el botón Cerrar.
+ - Al seleccionar en el botón ""Cerrar"", el sistema se desliza hacia abajo hasta ocultarse completamente con la misma animación. 
+ - Al interactuar con el checkbox cuando lo marco o desmarco, el sistema muestra el checkbox visualmente su estado (marcado/desmarcado)., "" - El contenido de los términos y condiciones de uso no será parametrizable desde BD mediante un script debido a que para esto se llama a la web view existente. 
+ - Será obligatorio aceptar los términos y condiciones de uso.  
+ - El dato de aceptación o no aceptación, el sistema debe enviar esta información a la BD propio del banco. Se debe desarrollar el API.
+ - En caso exista interrupción por falta de conexión y realizo algún evento de click o interacción con la app, el sistema debe mostrar un modal con el mensaje de error """"No estás conectado a internet conéctate a una red y vuelve a intentarlo"""" y el botón Entendido. Al ser seleccionada esta opción el sistema cierra el modal  y se mantiene en la vista interrumpiendo el proceso. El sistema espera la conectividad a internet para continuar con el proceso, una vez transcurrido el tiempo por falta de inactividad, el sistema finaliza el proceso sin éxito. Obliga al usuario a iniciar. Definir tiempo de inactividad que debe soportar el sistema.  
+ - Trazabilidad: El sistema debe capturar la cantidad de veces que el usuario está intentando aceptar los Términos y condiciones de uso ya sea con o sin éxito, la versión del contenido de los TyC esto asociado al dispositivo y geolocalización en caso el usuario tiene permitido o activado la captura de la geolocalización desde su dispositivo. """
+"Productos, Solicitud y/o apertura de Cuenta simple > Términos y condiciones , , HU0039 - Términos y condiciones del contrato de cuenta de ahorro simple , Cliente activo , Como cliente SURGIR, quiero poder aceptar los terminos y condiciones de manera obligatoria mediante un check box con información descargable para conocer los detalles de la política antes de dar mi consentimiento de manera informada., Validación de Términos y condiciones del contrato de cuenta de ahorro simple y la cartilla de información:
+ - Dado que estoy en la vista de confirmación de la solicitud que incluye el resumen de la cuenta de ahorro y la sección para la aceptación de términos y condiciones de del contrato de cuenta de ahorro simple.  
+ - el sistema me muestra un checkbox desmarcado con el texto ""Estoy de acuerdo con los términos y condiciones del contrato de cuenta de ahorro simple y la cartilla de información"" aparece en negrita y es clickeable.
+ - Cuando intento continuar sin marcar el checkbox entonces el sistema no lo permite, mostrando el botón Aceptar en gris.
+ - Dado que puedo visualizar el texto del checkbox, cuando hago clic en la frase en negrita, el sistema despliega un panel informativo que se desliza desde la parte inferior hacia arriba de forma animada (transición suave).
+ - Cuando este se despliega completamente entonces debe mostrar el contenido completo de la política de términos y condiciones con formato legible (párrafos, espaciado adecuado), vista scrolleable. Incluirá el botón cerrar.
+ - Al seleccionar en el botón ""Cerrar"", el sistema se desliza hacia abajo hasta ocultarse completamente con la misma animación. 
+ - Al interactuar con el checkbox cuando lo marco o desmarco, el sistema muestra el checkbox visualmente su estado (marcado/desmarcado).
+ Navegación al siguiente paso:
+ - Al seleccionar el botón Aceptar, el sistema captura el estado o flag de aceptación o no aceptación de los términos y condiciones y envía la información al API para almacenarse en la BD del Banco y el sistema me redirige a la vista de la confirmación de la creación de la cuenta. ,  - El contenido de los términos y condiciones de uso será parametrizable desde BD mediante un script. 
+ - Será obligatorio aceptar los términos y condiciones de uso.  
+ - El dato de aceptación o no aceptación, el sistema debe enviar esta información a la BD propio del banco. Se debe desarrollar el API.
+ - En caso exista interrupción por falta de conexión y realizo algún evento de click o interacción con la app, el sistema debe mostrar un modal con el mensaje de error ""No estás conectado a internet conéctate a una red y vuelve a intentarlo"" y el botón Entendido. Al ser seleccionada esta opción el sistema cierra el modal  y se mantiene en la vista interrumpiendo el proceso. El sistema espera la conectividad a internet para continuar con el proceso, una vez transcurrido el tiempo por falta de inactividad, el sistema finaliza el proceso sin éxito. Obliga al usuario a iniciar. Definir tiempo de inactividad que debe soportar el sistema.  
+ - Trazabilidad: El sistema debe capturar la cantidad de veces que el usuario está intentando aceptar los Términos y condiciones de uso ya sea con o sin éxito, la versión del contenido de los TyC esto asociado al dispositivo y geolocalización en caso el usuario tiene permitido o activado la captura de la geolocalización desde su dispositivo. "
+"Productos, Productos pasivos > Solicitud y/o aperura  de cuenta Gold, , HU0040 - Creaciòn de cuenta Gold, Cliente activo , Como cliente de SURGIR, quiero abrir una Cuenta Gold ingresando el monto con el que deseo iniciarla, declarando el origen de mis fondos hacia SANTANDER FINANCIAMIENTOS S.A. y aceptando los términos correspondientes, para acceder a los beneficios exclusivos de este producto de ahorro premium desde la app móvil., Escenario 1: Solicitud de cuenta de ahorro Gold como usuario sin cuenta en Surgir: 
+Elección de producto pasivo:
+ - Dado que no tengo una cuenta en la App Surgir y requiero solicitar una cuenta de ahorro Gold desde la opción Hacerme cliente y Quiero hacer crecer mis ahorros. 
+- Dado que pasé por el proceso de validación y seleccioné la opción Cuenta de Ahorro Gold Select en la sección Cuentas de ahorro, el sistema muestra la vista para poder ingresar el monto con el cual deseo aperturar mi cuenta.
+ - El ingreso del monto de apertura es obligatorio, por lo que el Botón ""Siguiente"" se encuentra en gris hasta ingresar un monto válido. 
+ - Dado que ingreso un monto válido y selecciono la opción ""Siguiente"", el sistema muestra la vista que permite elegir como abonar el capital de tu cuenta de ahorro que tendrá dos opciones a elegir: ""Depositaré a una cuenta corriente de SURGIR en otro banco"" y ""Desde mi cuenta de ahorros en SURGIR"". 
+- Dado que selecciono la opción ""Depositaré a una cuenta corriente de SURGIR en otro banco"", el sistema muestra la sección para aceptar la declaración de transferencia desde una cuenta de la que el usuario es el titular y en la parte inferior muestra una nota de importancia en la que indica que al finalizar la solicitud, se enviará un correo con el número de cuenta en otros bancos. 
+ - Dado que selecciono el check de ""Declaro que transferiré los fondos a SANTANDER FINANCIAMIENTOS S.A desde una cuenta de la que soy titular"", el sistema activa el botón ""Siguiente"". Dado que selecciono esta opción el sistema muestra el modal ""Depósito del abono"" que incluye texto informativo del abono, en que momento se apertura, el horario de abono y los botones ""Aceptar"", ""Volver"" y cerrar(X). 
+ - En caso seleccione la opción ""Desde mi cuenta de ahorros en SURGIR"", el sistema habilita caja de texto para poder ingresar mi número de cuenta y sección informativo ""El saldo disponible en tu cuenta debe ser igual o mayor al capital seleccionado"". 
+ - Una vez ingreso mi número de cuenta, el sistema habilita la opción Siguiente.
+ - Dado que selecciono cualquiera de estas dos opciones: ""Depósito a una cuenta corriente de SURGIR en otro banco"" o ""Desde mi cuenta de ahorros en SURGIR"" y haber ingresado los datos según lo elegido previamente, el sistema muestra la vista para confirmar Si desempeñé los últimos 2 años en el Perú o en el extranjero un cargo importante en una organización internacional con las opciones de Si o No, Opción con lista desplegable para seleccionar el origen de los fondos a abonar. 
+Sección indicativo de que la información es de carácter declaratorio. 
+ - En caso dentro del la lista desplegable Origen de los fondos a abonar selecciono la opción ""Otro"", el sistema habilita una caja de texto mostrando un contador en formato ""[caracteres_ingresados]/350”. que permite ingresar un origen diferente a las que ya se encuentran configuradas. 
+ - Una vez seleccione una opción de SI o NO y el origen de fondo, el sistemas activa el botón Siguiente.(Ambos campos considerados obligatorios)
+ - En caso selecciono la opción Si en la sección desempeñé los últimos 2 años en el Perú o en el extranjero un cargo importante en una organización internacional, el origen de fondo y el botón Siguiente, el sistema  muestra la vista con el siguiente mensaje ""No podemos atenderte por este canal"" incluido el botón Continuar con un ejecutivo. PENDIENTE DE DISEÑO CUANDO SE SELECCIONA LA OPCIÓN CONTINUAR CON UN EJECUTIVO. 
+ - Dado que selecciono la opción No en la sección desempeñé los últimos 2 años en el Perú o en el extranjero un cargo importante en una organización internacional y el botón Siguiente, el usuario avanza y el sistema muestra  vista de inicialización del proceso de biometría. Revisar |HU008 - Preparación para la captura de documento de identidad y biometria facial.| y "" |HU009 - Cliente Sin clave > Almacenamiento de datos biométricos.|. 
+ - Una vez el sistema valida la autorización de datos biométricos, el usuario avanza y el sistema muestra la vista inicial para la captura del documento de identidad. Revisar |HU010 - Cliente Sin clave > captura de documento de identidad.|.
+ - Una vez el sistema finaliza la validación de la captura de documento de identidad, el usuario avanza e inicializa la validación de biometría facial. Revisar |HU0011 - Cliente Sin clave > captura de biometría facial.|. 
+validación con GESINTEL:
+ - Una vez se finaliza con la validación biométrica, el usuario avanza y el sistema realiza la validación con GESINTEL(Listas PEP, Listas negras, FLAFT) si se tiene una respuesta positiva de manera exitosa, el usuario avanza y muestra la vista con la visualización de mi nombre completo, fecha de nacimiento y genero. Adicionalmente, campos para poder completar. En caso la validación con GESINTEL se tiene una respuesta negativa entonces el sistema muestra un mensaje de error: ""No podemos atenderte por este canal"" y la opción ""Continuar con un ejecutivo"". PENDIENTE DE DISEÑO cuando se selecciona la opción Continuar con un ejecutivo. 
+Confirmación de información personal:
+ - Los campos a completar serán los siguientes: lista desplegable Estado civil, lista desplegable Ocupación, Datos del domicilio: Lista desplegable Departamento, provincia, distrito y tipo de vía, campo Nombre vía, Barrio/Urbanización(opcional), Número de exterior, Número de interior(opcional) y referencia(opcional) incluido el botón Siguiente inicialmente en gris, una vez ingresado los datos considerados obligatorios, esto se activa. 
+Confirmación de datos de contacto:
+ - Dado que selecciono la opción ""Siguiente"", el usuario avanza y el sistema muestra la vista para confirmar su correo que incluye celular y correo electrónico precargado. Correo electrónico editable.
+ - Dado que ingreso mi correo en el campo Confirmar correo electrónico y selecciono la opción ""Siguiente"" el sistema realiza la validación de coincidencia con el correo electrónico. En caso no exista coincidencia el sistema muestra un mensaje de error: PENDIENTE DE DISEÑO. 
+ - Si existe coincidencia de correo y cumple con el formato que corresponde, el usuario avanza y el sistema muestra la vista ""Confirma tu solicitud"" que incluye resumen de la cuenta, Sección de aceptación de términos y condiciones del contrato de cuenta de ahorro Gold Select y la opción ""Terminar solicitud"".
+ - Para la gestión de los términos y condiciones del contrato de cuenta Revisar |HU0039 - Términos y condiciones del contrato de cuenta de ahorro simple|. Lo que varia es el contenido legal del producto.
+Confirmación final:
+ - Dado que me encuentro en la vista del resumen de la cuenta y selecciono la opción Terminar solicitud, el usuario avanza y el sistema muestra la vista de confirmación de solicitud que contempla lo siguiente: El título “¡Felicidades, [Nombre]!”, El subtítulo “Recibimos tu solicitud”, El texto “Solicitud N° [código de solicitud]”. Sección “Siguientes pasos"" con: 
+ * Paso 1 “Registraste tu solicitud”,
+indicando que se envió el detalle de la solicitud al correo registrado del cliente, incluyendo el correo en el texto. 
+ * Paso 2 ""Abona el monto de apertura"" Indicando que recibirá un correo con las instrucciones y nuestro número de cuenta corriente para que el usuario realice el abono del monto de apertura, según nuestro horario de atención. 
+ * Paso 3 “Apertura de cuenta”,
+indicando que una vez abonado, revisaremos tu solicitud, abriremos tu cuenta y te enviaremos los contratos a tu correo. Asimismo, incluye. Sección de Escala de recomendación (NPS) 
+“¿Considerando este proceso de apertura de cuenta, qué tan probable es que recomiendes a SURGIR a un amigo o familiar?” 
+con una escala de selección de 1 a 10, donde solo se puede seleccionar un valor a la vez, Campo con lista desplegable para la pregunta: “¿Cómo te enteraste de la Cuenta de Ahorro simple?” permitiendo seleccionar una de las opciones configuradas, campo de texto para responder “¿Por qué?” permitiendo ingresar hasta 500 caracteres, mostrando un contador en formato ""[caracteres_ingresados]/500”, la sección de contacto con el texto “Comunícate con nosotros a través de:"" seguida de tarjetas con canales de contacto, que incluyen al menos: Un ejecutivo de banca (nombre y número de teléfono), una dirección de oficina y un número para contactarse con algún asesor. Además Incluye el botón ""Enviar respuesta"".
+ - Dado que el botón “Enviar respuesta” se muestra inicialmente deshabilitado. Una vez ingrese los tres datos(""¿Selección de como te enteraste del depósito a plazo?"", ""¿Considerando este proceso, que tan probable es que recomiendes a SURGIR  a un amigo o familiar?"", ""¿Por qué?"") se activa el botón ""Enviar respuesta"". Dado que selecciono esta opción el sistema muestra un mensaje de confirmación del envio de la encuenta. PENDIENTE DE DISEÑO. 
+
+Escenario 2: Solicitud de cuenta de ahorro Gold select como usuario con cuenta en Surgir desde Home:
+Vista Inicial:
+ - Dado que selecciono la opción Cuenta de ahorro Gold select en la sección para ti o en el Home. El sistema muestra la vista creación de cuenta que incluye imagen o ilustración titulo Cuenta de ahorro Gold, listado de características informativo que tiene el producto y el botón Me interesa.
+ - Dado que selecciono la opción ""Me interesa"", el sistema muestra la vista para poder ingresar el monto con el cual deseo aperturar mi cuenta y la cuenta origen de la cual se realizará desembolso.      
+ - El ingreso del monto de apertura es obligatorio, así como la selección de la cuenta de origen.
+Si el usuario no cuenta con una cuenta en la sección “Cuenta de origen”, el sistema mostrará el siguiente mensaje informativo: “Evita comisiones por saldo mínimo”. En este caso, el usuario solo podrá continuar ingresando el monto de apertura.
+ - Dado que ingreso el monto de apertura, selecciono la ""Cuenta de origen"" y la opción ""Continuar"", el usuario avanza y el sistema muestra la vista para confirmar Si desempeñé los últimos 2 años en el Perú o en el extranjero un cargo importante en una organización internacional con las opciones de Si o No, Sección indicativo de que la información es de carácter declaratorio. 
+ - Una vez seleccione una opción, de SI o NO, el sistemas activa el botón Continuar.
+ - En caso selecciono la opción Si en la sección desempeñé los últimos 2 años en el Perú o en el extranjero un cargo importante en una organización internacional y el botón Continuar, el sistema  muestra la vista con el siguiente mensaje ""No podemos atenderte por este canal"" incluido el botón ""Continuar con un ejecutivo"".
+PENDIENTE DE DISEÑO CUANDO SE SELECCIONA LA OPCIÓN CONTINUAR CON UN EJECUTIVO. 
+ - Dado que selecciono la opción No en la sección desempeñé los últimos 2 años en el Perú o en el extranjero un cargo importante en una organización internacional y el botón Continuar, el usuario avanza y el sistema procede a realizar una validación con GESINTEL(Listas PEP, Listas negras, FLAFT). 
+validación con GESINTEL:
+ - En caso la validación con GESINTEL se tiene una respuesta positiva de manera exitosa, el usuario avanza y muestra la vista ""Confirma tu solicitud"" que incluye resumen de la cuenta, Sección de aceptación de términos y condiciones del contrato de cuenta de ahorro  gold select y la opción ""Aceptar"".
+ - La aceptación de los términos y condiciones se considera obligatorio, por lo que el botón ""Aceptar"" se encuentra en gris hasta que el check sea aceptado o marcado. para la gestión de los términos y condiciones del contrato de cuenta Revisar |HU0039 - Términos y condiciones del contrato de cuenta de ahorro simple|. La gestión será igual que la HU indicada lo que varia es el contenido legal de los términos y condiciones. 
+Confirmación final:
+ - Dado que me encuentro en la vista del resumen de la cuenta y selecciono la opción Aceptar, el usuario avanza y el sistema muestra la vista de confirmación de la cuenta creada que contempla lo siguiente: El título “¡Felicidades, [Nombre]!”, El subtítulo “Tu cuenta de ahorro Gold Select está creada”, Sección informativa de que los documentos contractuales será enviada al correo, Sección de contacto con el texto Título ""¿Tienes dudas?"" y “Comunícate con nosotros a través de:"" tarjetas con canales de contacto, que incluyen al menos: Un ejecutivo de banca (nombre y número de teléfono), una dirección de oficina y un número para contactarse con algún asesor. Finalmente el botón ""Volver al inicio"" que al ser seleccionada, el sistema redirige al home. 
+Navegación de retroceso:
+ - Dado que presiono la flecha ""←"", entonces el sistema regresa a la pantalla anterior"".,  - Para la apertura del producto serà necesario que exista un monto minimo, este monto mínimo debe ser parametrizado por script. 
+ -  El cliente podrá aperturar una cuenta Gold tanto dentro como fuera de la aplicación. Es decir, podrà aperturar su cuenta en la vista inicial de la app y una vez ya se encuenre logueado. 
+ - El monto minimo para solicitar la apertura del cliente será 20000 soles. 
+
+
+ - Los clientes que declaran ""Otros"" como origen de fondos deben ser objeto de una revisión adicional por el oficial de cumplimiento PLAFT de SURGIR, ya que esta respuesta puede indicar un origen de fondos que no encaja en las categorías estándar de riesgo bajo. ¿Considerar algùn tiempo de demora para poder habilitar la cuenta?
+ - Si el cliente declara ser PEP, el sistema debe activar automáticamente una alerta y enrutar la apertura de cuenta hacia una aprobación manual por el área de Cumplimiento antes de activarla. 
+ - La cuenta no puede activarse automáticamente para clientes PEP bajo ninguna circunstancia. El proceso de aprobación manual para clientes PEP puede tomar entre 24 y 72 horas hábiles y puede requerir documentación adicional. Esto debe comunicarse claramente al cliente en la pantalla correspondiente. Para esto el sistema debe mostrar la opciòn de Continuar con un ejecutivo. PENDIENTE DE DISEÑO AL SELECCIONAR ESTA OPCIÒN. 
+ - Cuando el usuario retira todo el dinero de su cuenta y esto se encuentra en cero, serà obligatorio realizar el pago de mantenimiento. El monto de mantenimiento debe proporcionarlo COBIS. Sin embargo no lo pueda proporcionar esto serà validado desde los servicios o BD de la app. ¿Cuanto serà el monto de mantenimiento que el cliente debe de pagar?.
+ - La cuenta se activarà una vez el cliente realice el depòsito en la cuenta.
+ - DEFINIR CRITERIO DE ASIGNACIÒN DE UN EJECUTIVO A UN CLIENTE.
+ -  La secciòn de call center para este producto debe ser configurable en el sistema de gestión de contenidos ya que los horarios de atención pueden cambiar por feriados, emergencias o decisiones operativas. El sistema no debe tener estos datos hardcodeados en el código.
+ - No existirà un plazo determinado para que la cuenta pueda ser activado. Depòsito del cliente. 
+ - Antes de aperturar la cuenta, una vez se finalice con el proceso de validaciòn biomètrica el sistema debe pasar por la validaciòn de GESINTEL y lista negra, en caso la respuesta es negativo el sistema debe mostrar un modal que contemple el siguiente mensaje: ""No podemos atenderte por este canal"" y la opciòn ""Continuar con un ejecutivo"". Pendiente de diseño del flujo.. 
+ - En caso exista interrupción por falta de conexión y realizo algún evento de click o interacción con la app, el sistema debe mostrar un modal con el mensaje de error  interrumpiendo el proceso, mensaje de error: ""No estás conectado a internet conéctate a una red y vuelve a intentarlo"" y el botón Entendido. Al ser seleccionada esta opción el sistema cierra el modal  y redirige al Login. 
+ - Trazabilidad: El sistema captura las interacciones que tendrá el usuario para determinar las actividades frecuentes del usuario. "
+"Productos, Productos pasivos > Solicitud de plazo fijo , , HU0041 - Creaciòn depòsito a plazo fijo , Cliente activo , Como cliente de SURGIR, quiero abrir un Depósito a Plazo Digital desde la app eligiendo las características del depósito, la forma de abono del capital y confirmando mi solicitud, para hacer crecer mis ahorros a una tasa atractiva sin necesidad de acudir a una agencia., Escenario 1: Solicitud de depósito a plazo fijo como usuario sin cuenta en Surgir: 
+Elección de producto pasivo:
+ - Dado que no tengo una cuenta en la App Surgir y requiero solicitar una cuenta de depósito a plazo fijo desde la opción Hacerme cliente y Quiero hacer crecer mis ahorros. 
+- Dado que pasé por el proceso de validación y seleccioné la opción Depósito a plazo Digital en la sección Depósito a plazo, el sistema muestra la vista para poder seleccionar el tipo de moneda, el monto a depositar y el pago de intereses con el cual deseo aperturar mi cuenta. Además, incluye Tooltip en la sección pago de intereses, sección informativo sobre la creación de cuenta de ahorro por defecto en caso el usuario no cuente con una cuenta, incluido la opción Mas sobre Cuenta de Ahorro Simple. 
+ - Dado que selecciono el Tooltip en la sección Pago de intereses, el sistema muestra un modal informativo sobre cada Forma de recepción de intereses incluido el botón ""Aceptar"" y el botón cerrar(X) que al ser seleccionada una de estas opciones se cierra el modal y muestra la vista anterior. 
+ - Dado que selecciono la opción ""Mas sobre Cuenta de Ahorro Simple"", el sistema muestra un modal que incluye imagen en la parte superior, sección informativa sobre la Cuenta de Ahorro Simple y el botón ""Cerrar"" y la opción Cerrar(X), que al ser seleccionado cierra el modal mostrando la vista anterior. 
+ - El campo Pago de interés contiene la siguiente información. 
+ * Al vencimiento: Con capitalización, Sin capitalización.
+ * Pago periódico: Mensual, Bimestral, Trimestral, Semestral y Anual.
+ - Dado que elijo las características del depósito a plazo en la cual selecciono el tipo de moneda, ingreso el monto a depositar y selecciono el pago de intereses, el sistema muestra una tabla de tasa y plazo de acuerdo a los inputs ingresados. Esta sección contiene: una lista de interés (|porcentaje| TREA, |número de días| días, S/|monto| y Ganarás S/|monto generado|), el símbolo de tipo de moneda se alinea de acuerdo a lo seleccionado por el usuario en el campo Moneda, en caso seleccione  Soles en la lista de Tasa y plazo se mostrará con el símbolo ""S/"". En caso se seleccione el tipo de moneda Dólares se mostrará el símbolo $.
+ - Dado que ingreso todos los datos, selecciono una tasa y plazo, el sistema activa el Botón ""Siguiente"". Que al ser seleccionada esta opción, el sistema muestra la vista que permite elegir como abonar el capital de tu depósito a plazo que tendrá dos opciones a elegir: ""Depositaré a una cuenta corriente de SURGIR en otro banco"" y ""Desde mi cuenta de ahorros en SURGIR"". 
+- Dado que selecciono la opción ""Depositaré a una cuenta corriente de SURGIR en otro banco"", el sistema muestra la sección para aceptar la declaración de transferencia desde una cuenta de la que el usuario es el titular y en la parte inferior muestra una nota de importancia en la que indica que al finalizar la solicitud, se enviará un correo con el número de cuenta en otros bancos. 
+ - Dado que selecciono el check de ""Declaro que transferiré los fondos a SANTANDER FINANCIAMIENTOS S.A desde una cuenta de la que soy titular"", el sistema activa el botón ""Siguiente"". Dado que selecciono esta opción el sistema muestra el modal ""Depósito del abono"" que incluye texto informativo del abono, en que momento se apertura, el horario de abono y los botones ""Aceptar"", ""Volver"" y cerrar(X). Que al ser seleccionada cualquiera de estas opciones el usuario avanza y el sistema muestra la vista para poder seleccionar el origen de fondo.
+ - En caso seleccione la opción ""Desde mi cuenta de ahorros en SURGIR"", el sistema habilita caja de texto para poder ingresar mi número de cuenta y sección informativo ""El saldo disponible en tu cuenta debe ser igual o mayor al capital seleccionado"". 
+ - Una vez ingreso mi número de cuenta, el sistema habilita la opción Siguiente.
+ - Dado que selecciono cualquiera de estas dos opciones: ""Depósito a una cuenta corriente de SURGIR en otro banco"" o ""Desde mi cuenta de ahorros en SURGIR"" y haber ingresado los datos según lo elegido previamente, el sistema muestra la vista para confirmar Si desempeñé los últimos 2 años en el Perú o en el extranjero un cargo importante en una organización internacional con las opciones de Si o No, Opción con lista desplegable para seleccionar el origen de los fondos a abonar, 
+Sección indicativo de que la información es de carácter declaratorio. 
+ - La lista desplegable Origen de fondos contiene las opciones: Ahorros, Alquileres, Juegos de azar, Donaciones, Herencia, Prestaciones laborales, Utilidades, Venta de bienes y otros. En caso selecciono la opción ""Otro"", el sistema habilita una caja de texto mostrando un contador en formato ""[caracteres_ingresados]/350”. que permite ingresar un origen diferente a las que ya se encuentran configuradas. 
+ - Dado que selecciono una opción de SI o NO en la sección del lugar de desempeño y si se ocupo un cargo publico y el origen de fondo, el sistemas activa el botón Siguiente.(Ambos campos considerados obligatorios)
+ - En caso selecciono la opción ""Si"" en la sección del lugar de desempeño y si se ocupo un cargo publico, el origen de fondo y el botón Siguiente, el sistema  muestra la vista con el siguiente mensaje ""No podemos atenderte por este canal"" incluido el botón Continuar con un ejecutivo. PENDIENTE DE DISEÑO CUANDO SE SELECCIONA LA OPCIÓN CONTINUAR CON UN EJECUTIVO. 
+ - Dado que selecciono la opción ""No"" en la sección del lugar de desempeño y si se ocupo un cargo publico, el origen de fondo y el botón Siguiente, el usuario avanza y el sistema muestra  vista de inicialización del proceso de biometría. Revisar |HU008 - Preparación para la captura de documento de identidad y biometria facial.| y "" |HU009 - Cliente Sin clave > Almacenamiento de datos biométricos.|. 
+ - Una vez el sistema valida la autorización de datos biométricos, el usuario avanza y el sistema muestra la vista inicial para la captura del documento de identidad. Revisar |HU010 - Cliente Sin clave > captura de documento de identidad.|.
+ - Una vez el sistema finaliza la validación de la captura de documento de identidad, el usuario avanza e inicializa la validación de biometría facial. Revisar |HU0011 - Cliente Sin clave > captura de biometría facial.|. 
+validación con GESINTEL:
+ - Una vez se finaliza con la validación biométrica, el usuario avanza y el sistema realiza la validación con GESINTEL(Listas PEP, Listas negras, FLAFT) si se tiene una respuesta positiva de manera exitosa, el usuario avanza y muestra la vista que incluye mi nombre completo, fecha de nacimiento y genero. Adicionalmente, campos para poder completar. En caso la validación con GESINTEL se tiene una respuesta negativa entonces el sistema muestra un mensaje de error: ""No podemos atenderte por este canal"" y la opción ""Continuar con un ejecutivo"". PENDIENTE DE DISEÑO cuando se selecciona la opción Continuar con un ejecutivo. 
+Confirmación de información personal:
+ - Los campos Nombre completo, Fecha de nacimiento y Género son datos precargados y los datos a completar serán los siguientes: lista desplegable Estado civil, lista desplegable Ocupación, Datos del domicilio: Lista desplegable Departamento, provincia, distrito y tipo de vía, campo Nombre vía, Barrio/Urbanización(opcional), Número de exterior, Número de interior(opcional) y referencia(opcional) incluido el botón ""Siguiente"" inicialmente en gris, una vez ingresado los datos considerados obligatorios, esto se activa. 
+Confirmación de datos de contacto:
+ - Dado que selecciono la opción ""Siguiente"", el usuario avanza y el sistema muestra la vista para confirmar su correo que incluye celular y correo electrónico precargado. Correo electrónico editable.
+ - Dado que ingreso mi correo en el campo Confirmar correo electrónico y selecciono la opción ""Siguiente"" el sistema realiza la validación de coincidencia con el correo electrónico. En caso no exista coincidencia el sistema muestra un mensaje de error: PENDIENTE DE DISEÑO. 
+ - Si existe coincidencia de correo y cumple con el formato que corresponde, el usuario avanza y el sistema muestra la vista ""Confirma tu solicitud"" que incluye resumen de la cuenta, Sección de aceptación de términos y condiciones del contrato de cuenta de ahorro Gold Select y la opción ""Terminar solicitud"".
+ - Para la gestión de los términos y condiciones del contrato de cuenta Revisar |HU0039 - Términos y condiciones del contrato de cuenta de ahorro simple|. Lo que varia es el contenido legal del producto.
+Confirmación final:
+ - Dado que me encuentro en la vista del resumen de la cuenta y selecciono la opción Terminar solicitud, el usuario avanza y el sistema muestra la vista de confirmación de solicitud que contempla lo siguiente: El título “¡Felicidades, [Nombre]!”, El subtítulo “Recibimos tu solicitud”, El texto “Solicitud N° [código de solicitud]”. Sección “Siguientes pasos"" con: 
+ * Paso 1 “Registraste tu solicitud”,
+indicando que se envió el detalle de la solicitud al correo registrado del cliente, incluyendo el correo en el texto. 
+ * Paso 2 ""Abona el monto de apertura"" Indicando que recibirá un correo con las instrucciones y nuestro número de cuenta corriente para que el usuario realice el abono del monto de apertura, según nuestro horario de atención. 
+ * Paso 3 “Apertura de cuenta”,
+indicando que una vez abonado, revisaremos tu solicitud, abriremos tu cuenta y te enviaremos los contratos a tu correo. Asimismo, incluye. Sección de Escala de recomendación (NPS) 
+“¿Considerando este proceso de apertura de cuenta, qué tan probable es que recomiendes a SURGIR a un amigo o familiar?” 
+con una escala de selección de 1 a 10, donde solo se puede seleccionar un valor a la vez, Campo con lista desplegable para la pregunta: “¿Cómo te enteraste de la Cuenta de Ahorro simple?” permitiendo seleccionar una de las opciones configuradas, campo de texto para responder “¿Por qué?” permitiendo ingresar hasta 500 caracteres, mostrando un contador en formato ""[caracteres_ingresados]/500”, la sección de contacto con el texto “Comunícate con nosotros a través de:"" seguida de tarjetas con canales de contacto, que incluyen al menos: Un ejecutivo de banca (nombre y número de teléfono), una dirección de oficina y un número para contactarse con algún asesor. Además Incluye el botón ""Enviar respuesta"".
+ - Dado que el botón “Enviar respuesta” se muestra inicialmente deshabilitado. Una vez ingrese los tres datos(""¿Selección de como te enteraste del depósito a plazo?"", ""¿Considerando este proceso, que tan probable es que recomiendes a SURGIR  a un amigo o familiar?"", ""¿Por qué?"") se activa el botón ""Enviar respuesta"". Dado que selecciono esta opción el sistema muestra un mensaje de confirmación del envio de la encuenta. PENDIENTE DE DISEÑO. 
+
+Escenario 2: Solicitud de depósito a plazo fijo como usuario con cuenta en Surgir desde Home o sección Para ti:
+Vista Inicial:
+ - Dado que selecciono la opción Depósito a plazo fijo en la sección para ti o en el Home. El sistema muestra la vista creación de depósito que incluye imagen o ilustración titulo Depósito a plazo fijo digital, listado de características informativo que tiene el producto y el botón ""Me interesa"".
+ - Dado que selecciono la opción ""Me interesa"", el sistema muestra la vista para poder seleccionar el tipo de moneda, el monto de apertura, Cuenta de origen y el pago de intereses con el cual deseo aperturar mi cuenta. Además, incluye Tooltip en la sección pago de intereses, sección informativo ""Si retiras tu dinero antes del plazo, se aplicará la tasa de cancelación anticipada."" ""Si la fecha de vencimiento del depósito a plazo cae en un día no laborables o feriado, se reprogramará el plazo al primer día hábil siguiente."". Tasa de cancelación anticipada se encuentra en negrita y seleccionable. 
+ - Dado que selecciono el Tooltip en la sección Pago de intereses, el sistema muestra un modal informativo sobre cada Forma de recepción de intereses incluido el botón ""Aceptar"" y el botón cerrar(X) que al ser seleccionada una de estas opciones se cierra el modal y muestra la vista anterior. 
+ - Dado que selecciono la opción ""tasa de cancelación anticipada"", el sistema muestra el modal ""Tasa de cancelación anticipada"" que contempla sección informativa sobre la TREA que se pagará en el transcurso de los 90 días, de la TREA que se pagará de 01 a 181 días y la TREA que se paga en caso transcurra mayor a 181 días, incluido el botón ""Aceptar"" y cerrar(X) que al ser seleccionada cualquiera de estas copiones el modal se cierra y muestra la vista anterior. 
+ - Dado que elijo las características del depósito a plazo en la cual selecciono el tipo de moneda, ingreso el monto de apertura, cuenta de origen y selecciono el pago de intereses, el sistema muestra una tabla de tasa y plazo de acuerdo a los inputs ingresados. Esta sección contiene: una lista de interés ([porcentaje] TREA, [número de días] días, S/[monto] y Ganarás S/[monto generado]), el símbolo de tipo de moneda se alinea de acuerdo a lo seleccionado por el usuario en el campo Moneda. En caso seleccione Soles en la lista de Tasa y plazo se mostrará con el símbolo ""S/"". En caso se seleccione el tipo de moneda Dólares se mostrará el símbolo $.
+ - Dado que ingreso todos los datos, selecciono una tasa y plazo, el sistema activa el Botón ""Continuar"". Que al ser seleccionada esta opción, el sistema muestra la vista para confirmar Si desempeñé los últimos 2 años en el Perú o en el extranjero, un cargo público importante o una función importante en una organización internacional con las opciones de Si o No, sección informativo de que la información es de carácter declaratorio. 
+ - Una vez elijo una opción, de SI o NO, el sistemas activa el botón Continuar.
+ - En caso selecciono la opción ""Si"" en la sección desempeñé los últimos 2 años en el Perú o en el extranjero, un cargo público importante o una función importante en una organización internacional y el botón Continuar, el sistema  muestra la vista con el siguiente mensaje ""No podemos atenderte por este canal"" incluido el botón ""Continuar con un ejecutivo"". PENDIENTE DE DISEÑO CUANDO SE SELECCIONA LA OPCIÓN CONTINUAR CON UN EJECUTIVO. 
+ - Dado que selecciono la opción ""No"" en la sección desempeñé los últimos 2 años en el Perú o en el extranjero, un cargo público importante o una función importante en una organización internacional y el botón Continuar, el usuario avanza y el sistema procede a realizar una validación con GESINTEL(Listas PEP, Listas negras, FLAFT). 
+validación con GESINTEL:
+ - En caso la validación con GESINTEL se obtiene una respuesta positiva de manera exitosa, el usuario avanza y muestra la vista ""Confirma tu solicitud"" que incluye resumen de la cuenta, Sección de aceptación de términos y condiciones del contrato de Depósito a plazo y la Cartilla de información y la opción ""Aceptar"".
+ - La aceptación de los términos y condiciones se considera obligatorio, por lo que el botón ""Aceptar"" se encuentra en gris hasta que el check sea aceptado o marcado. 
+para la gestión de los términos y condiciones del contrato de cuenta Revisar |HU0039 - Términos y condiciones del contrato de cuenta de ahorro simple|. La gestión será igual que la HU indicada lo que varia es el contenido legal de los términos y condiciones. 
+Confirmación final:
+ - Dado que me encuentro en la vista del resumen de la cuenta y selecciono la opción ""Aceptar"", el usuario avanza y el sistema muestra la vista de confirmación de la cuenta creada que contempla lo siguiente: El título “¡Felicidades, [Nombre]!”, El subtítulo “Tu depósito a Plazo Fijo Digital está creada”, Sección informativa de que los documentos contractuales será enviada al correo, Sección de contacto con el texto Título ""¿Tienes dudas?"" y “Comunícate con nosotros a través de:"" tarjetas con canales de contacto, que incluyen al menos: Un ejecutivo de banca (nombre y número de teléfono), una dirección de oficina y un número para contactarse con algún asesor. Finalmente el botón ""Volver al inicio"" que al ser seleccionada, el sistema redirige al home. 
+Navegación de retroceso:
+ - Dado que presiono la flecha ""←"", entonces el sistema regresa a la pantalla anterior"".
+,  - La TREA mostrada en la tabla de tasas y plazos debe ser la vigente en el sistema al momento de la consulta y puede variar según: la moneda del depósito (soles vs dólares), el plazo elegido (a mayor plazo generalmente mayor TREA), el monto del depósito (algunos productos ofrecen TREA diferenciada por tramos de monto), y la modalidad de pago de intereses (capitalización vs pago periódico).
+ - El cálculo de los intereses mostrado en pantalla es referencial porque la TREA exacta que se aplicará al contrato depende de la fecha efectiva de inicio del depósito, que corresponde a la fecha en que se confirme el abono del capital, no la fecha de registro de la solicitud.
+ - Si entre la fecha de solicitud y la fecha de abono la TREA vigente cambia, prevalece la TREA vigente al momento de la apertura efectiva del depósito, lo cual debe comunicarse claramente al cliente.
+ - Los clientes que declaran ""Otros"" como origen de fondos deben ser objeto de una revisión adicional por el oficial de cumplimiento PLAFT de SURGIR, ya que esta respuesta puede indicar un origen de fondos que no encaja en las categorías estándar de riesgo bajo. ¿Considerar algùn tiempo de demora para poder habilitar la cuenta?
+ - Si el cliente declara ser PEP, el sistema debe activar automáticamente una alerta y enrutar la apertura de cuenta hacia una aprobación manual por el área de Cumplimiento antes de activarla. 
+ - El sistema cubre la etapa del registro de la solicitud y genera el número de solicitud. La segunda etapa es el abono del capital. Este proceso se realiza de manera externa.
+ - Solo tras confirmar la recepción del abono SURGIR activa el depósito y envía los contratos con la nueva TREA en caso haya variado durante el rango de fecha que solicitò la apertura y el abono realizado.
+ -  si el cliente no realiza el abono en el plazo definido por SURGIR la solicitud expira automáticamente. DEFINIR EL PLAZO (PARAMETRIZABLE POR SCRIPT).
+ - La pantalla de confirmación muestra los datos del Ejecutivo. Esto se debe encontrar almacenado o gestionado en la BD del aplicativo Surgir. 
+- Tras el registro exitoso de la solicitud el sistema debe enviar automáticamente un correo al cliente con la informaciòn de la solicitud que està realizando. 
+ - Al vencimiento del plazo (renovación automática o devolución del capital más intereses), cómo se notificará al cliente próximo al vencimiento, cuál es el plazo de preaviso para instrucciones de renovación o cancelación, y qué tasa aplica en caso de renovación automática si la TREA vigente cambió. Estas condiciones son obligatorias según la normativa SBS.
+ - DEFINIR CRITERIO DE ASIGNACIÒN DE UN EJECUTIVO A UN CLIENTE.
+ - La secciòn de call center para este producto debe ser configurable en el sistema de gestión de contenidos ya que los horarios de atención pueden cambiar por feriados, emergencias o decisiones operativas. El sistema no debe tener estos datos hardcodeados en el código. 
+ -  En caso exista interrupción por falta de conexión y realizo algún evento de click o interacción con la app, el sistema debe mostrar un modal con el mensaje de error  interrumpiendo el proceso, mensaje de error: ""No estás conectado a internet conéctate a una red y vuelve a intentarlo"" y el botón Entendido. Al ser seleccionada esta opción el sistema cierra el modal  y redirige al Login. 
+ - Trazabilidad: El sistema captura las interacciones que tendrá el usuario para determinar las actividades frecuentes del usuario. "
+"Productos, Productos pasivos > Solicitud de plazo fijo flexible, , HU0044 - Creaciòn deposito plazo fijo flexible, Cliente activo , Como cliente de SURGIR, quiero abrir un Depósito a Plazo fijo flexible desde la app eligiendo las características del depósito, la forma de abono del capital y confirmando mi solicitud, para hacer crecer mis ahorros a una tasa atractiva sin necesidad de acudir a una agencia. Ademàs elegir este producto por la flexibilidad del retiro en cualquier momento que necesite la disponibilidad de mi dinero. , Escenario 1: Solicitud de depósito a plazo fijo Flexible como usuario sin cuenta en Surgir: 
+Elección de producto pasivo:
+ - Dado que no tengo una cuenta en la App Surgir y requiero solicitar una cuenta de depósito a plazo fijo flexible desde la opción Hacerme cliente y Quiero hacer crecer mis ahorros. 
+- Dado que pasé por el proceso de validación y seleccioné la opción Depósito a plazo fijo flexible en la sección Cuentas de ahorro, el sistema muestra la vista para poder ingresar el monto a depositar y el pago de intereses con el cual deseo aperturar mi cuenta. Además, incluye Tooltip en la sección pago de intereses, sección informativo sobre la creación de cuenta de ahorro por defecto en caso el usuario no cuente con una cuenta, incluido la opción ""Mas sobre Cuenta de Ahorro Simple"", sección informativo ""Si retiras tu dinero antes del plazo, se aplicará la tasa de cancelación anticipada."" ""Si la fecha de vencimiento del depósito a plazo cae en un día no laborables o feriado, se reprogramará el plazo al primer día hábil siguiente."". Tasa de cancelación anticipada se encuentra en negrita y seleccionable. 
+ - Dado que selecciono el Tooltip en la sección Pago de intereses, el sistema muestra un modal informativo sobre cada Forma de recepción de intereses incluido el botón ""Aceptar"" y el botón cerrar(X) que al ser seleccionada una de estas opciones se cierra el modal y muestra la vista anterior. 
+ - Dado que selecciono la opción ""Mas sobre Cuenta de Ahorro Simple"", el sistema muestra un modal que incluye imagen en la parte superior, sección informativa sobre la Cuenta de Ahorro Simple y el botón ""Cerrar"" y la opción Cerrar(X), que al ser seleccionado cierra el modal mostrando la vista anterior. 
+ - Dado que selecciono la opción ""tasa de cancelación anticipada"", el sistema muestra el modal ""Tasa de cancelación anticipada"" que contempla sección informativa sobre la TREA que se pagará en el transcurso de los 90 días, de la TREA que se pagará de 01 a 181 días y la TREA que se paga en caso transcurra mayor a 181 días, incluido el botón ""Aceptar"" y cerrar(X) que al ser seleccionada cualquiera de estas copiones el modal se cierra y muestra la vista anterior. 
+ - La lista desplegable Pago de interés contiene la siguiente información: 
+ * Al vencimiento: Con capitalización, Sin capitalización.
+ * Pago periódico: Mensual, Bimestral, Trimestral, Semestral y Anual.
+ - Dado que elijo las características del depósito a plazo fijo flexible en la cual ingreso el monto a depositar y selecciono el pago de intereses, el sistema muestra una tabla de tasa y plazo de acuerdo a los inputs ingresados. Esta sección contiene: una lista de interés ([porcentaje] TREA, [número de días] días, S/[monto] y Ganarás S/[monto generado]).
+ - Dado que ingreso todos los datos, selecciono una tasa y plazo, el sistema activa el Botón ""Siguiente"". Que al ser seleccionada esta opción, el sistema muestra la vista que permite elegir como abonar el capital de tu depósito a plazo que tendrá dos opciones a elegir: ""Depositaré a una cuenta corriente de SURGIR en otro banco"" y ""Desde mi cuenta de ahorros en SURGIR"". 
+- Dado que selecciono la opción ""Depositaré a una cuenta corriente de SURGIR en otro banco"", el sistema muestra la sección para aceptar la declaración de transferencia desde una cuenta de la que el usuario es el titular y en la parte inferior muestra una nota de importancia en la que indica que al finalizar la solicitud, se enviará un correo con el número de cuenta en otros bancos. 
+ - Dado que selecciono el check de ""Declaro que transferiré los fondos a SANTANDER FINANCIAMIENTOS S.A desde una cuenta de la que soy titular"", el sistema activa el botón ""Siguiente"". Dado que selecciono esta opción el sistema muestra el modal ""Depósito del abono"" que incluye texto informativo del abono, en que momento se apertura, el horario de abono y los botones ""Aceptar"", ""Volver"" y cerrar(X). Que al ser seleccionada cualquiera de estas opciones el usuario avanza y el sistema muestra la vista para poder seleccionar el origen de fondo.
+ - En caso seleccione la opción ""Desde mi cuenta de ahorros en SURGIR"", el sistema habilita caja de texto para poder ingresar mi número de cuenta y sección informativo ""El saldo disponible en tu cuenta debe ser igual o mayor al capital seleccionado"". 
+ - Una vez ingreso mi número de cuenta, el sistema habilita la opción Siguiente.
+ - Dado que selecciono cualquiera de estas dos opciones: ""Depósito a una cuenta corriente de SURGIR en otro banco"" o ""Desde mi cuenta de ahorros en SURGIR"" y haber ingresado los datos según lo elegido previamente, el sistema muestra la vista para confirmar Si desempeñé los últimos 2 años en el Perú o en el extranjero, un cargo público importante o una función importante en una organización internacional con las opciones de Si o No, Opción con lista desplegable para seleccionar el origen de los fondos a abonar, sección indicativo de que la información es de carácter declaratorio. 
+ - La lista desplegable Origen de fondos contiene las opciones: Ahorros, Alquileres, Juegos de azar, Donaciones, Herencia, Prestaciones laborales, Utilidades, Venta de bienes y otros. En caso selecciono la opción ""Otro"", el sistema habilita una caja de texto mostrando un contador en formato ""[caracteres_ingresados]/350”. que permite ingresar un origen diferente a las que ya se encuentran configuradas. 
+ - Dado que selecciono una opción de SI o NO en la sección del lugar de desempeño y si se ocupo un cargo publico y el origen de fondo, el sistemas activa el botón Siguiente.(Ambos campos considerados obligatorios).
+ - En caso selecciono la opción ""Si"" en la sección del lugar de desempeño y si se ocupo un cargo publico, el origen de fondo y el botón ""Siguiente"", el sistema  muestra la vista con el siguiente mensaje ""No podemos atenderte por este canal"" incluido el botón Continuar con un ejecutivo. PENDIENTE DE DISEÑO CUANDO SE SELECCIONA LA OPCIÓN CONTINUAR CON UN EJECUTIVO. 
+ - Dado que selecciono la opción ""No"" en la sección del lugar de desempeño y si se ocupo un cargo publico, el origen de fondo y el botón ""Siguiente"", el usuario avanza y el sistema muestra  vista de inicialización del proceso de biometría. Revisar |HU008 - Preparación para la captura de documento de identidad y biometría facial.| y "" |HU009 - Cliente Sin clave > Almacenamiento de datos biométricos.|. 
+ - Una vez el sistema valida la autorización de datos biométricos, el usuario avanza y el sistema muestra la vista inicial para la captura del documento de identidad. Revisar |HU010 - Cliente Sin clave > captura de documento de identidad.|.
+ - Una vez el sistema finaliza la validación de la captura de documento de identidad, el usuario avanza e inicializa la validación de biometría facial. Revisar |HU0011 - Cliente Sin clave > captura de biometría facial.|. 
+validación con GESINTEL:
+ - Una vez se finaliza con la validación biométrica, el usuario avanza y el sistema realiza la validación con GESINTEL(Listas PEP, Listas negras, FLAFT) si se tiene una respuesta positiva de manera exitosa, el usuario avanza y muestra la vista que incluye mi nombre completo, fecha de nacimiento y genero. Adicionalmente, campos para poder completar. 
+ - En caso la validación con GESINTEL se tiene una respuesta negativa entonces el sistema muestra un mensaje de error: ""No podemos atenderte por este canal"" y la opción ""Continuar con un ejecutivo"". PENDIENTE DE DISEÑO cuando se selecciona la opción Continuar con un ejecutivo. 
+Confirmación de información personal:
+ - Los campos Nombre completo, Fecha de nacimiento y Género son datos precargados y los datos a completar serán los siguientes: lista desplegable Estado civil, lista desplegable Ocupación, Datos del domicilio: Lista desplegable Departamento, provincia, distrito y tipo de vía, campo Nombre vía, Barrio/Urbanización(opcional), Número de exterior, Número de interior(opcional) y referencia(opcional) incluido el botón ""Siguiente"" inicialmente en gris, una vez ingresado los datos considerados obligatorios, esto se activa. 
+Confirmación de datos de contacto:
+ - Dado que selecciono la opción ""Siguiente"", el usuario avanza y el sistema muestra la vista para confirmar su correo que incluye celular y correo electrónico precargado. Correo electrónico editable.
+ - Dado que ingreso mi correo en el campo Confirmar correo electrónico y selecciono la opción ""Siguiente"" el sistema realiza la validación de coincidencia con el correo electrónico. En caso no exista coincidencia el sistema muestra un mensaje de error: PENDIENTE DE DISEÑO. 
+ - Si existe coincidencia de correo y cumple con el formato que corresponde, el usuario avanza y el sistema muestra la vista ""Confirma tu solicitud"" que incluye resumen de la cuenta, Sección de aceptación de términos y condiciones del contrato de cuenta de ahorro Gold Select y la opción ""Terminar solicitud"".
+ - Para la gestión de los términos y condiciones del contrato de cuenta Revisar |HU0039 - Términos y condiciones del contrato de cuenta de ahorro simple|. Lo que varia es el contenido legal del producto.
+Confirmación final:
+ - Dado que me encuentro en la vista del resumen de la cuenta y selecciono la opción Terminar solicitud, el usuario avanza y el sistema muestra la vista de confirmación de solicitud que contempla lo siguiente: El título “¡Felicidades, [Nombre]!”, El subtítulo “Recibimos tu solicitud”, El texto “Solicitud N° [código de solicitud]”. Sección “Siguientes pasos"" con: 
+ * Paso 1 “Registraste tu solicitud”,
+indicando que se envió el detalle de la solicitud al correo registrado del cliente, incluyendo el correo en el texto. 
+ * Paso 2 ""Abona el monto de apertura"" Indicando que recibirá un correo con las instrucciones y nuestro número de cuenta corriente para que el usuario realice el abono del monto de apertura, según nuestro horario de atención. 
+ * Paso 3 “Apertura de depósito a plazo” Indicando que una vez abonado, revisaremos tu solicitud, abriremos tu cuenta y te enviaremos los contratos a tu correo. Asimismo, incluye. Sección de Escala de recomendación (NPS) 
+“¿Considerando este proceso de apertura de cuenta, qué tan probable es que recomiendes a SURGIR a un amigo o familiar?” 
+con una escala de selección de 1 a 10, donde solo se puede seleccionar un valor a la vez, Campo con lista desplegable para la pregunta: “¿Cómo te enteraste de la Cuenta de Ahorro simple?” permitiendo seleccionar una de las opciones configuradas, campo de texto para responder “¿Por qué?” permitiendo ingresar hasta 500 caracteres, mostrando un contador en formato ""[caracteres_ingresados]/500”, la sección de contacto con el texto “Comunícate con nosotros a través de:"" seguida de tarjetas con canales de contacto, que incluyen al menos: Un ejecutivo de banca (nombre y número de teléfono), una dirección de oficina y un número para contactarse con algún asesor. Además Incluye el botón ""Enviar respuesta"".
+ - Dado que el botón “Enviar respuesta” se muestra inicialmente deshabilitado. Una vez ingrese los tres datos(""¿Selección de como te enteraste del depósito a plazo?"", ""¿Considerando este proceso, que tan probable es que recomiendes a SURGIR  a un amigo o familiar?"", ""¿Por qué?"") se activa el botón ""Enviar respuesta"". Dado que selecciono esta opción el sistema muestra un mensaje de confirmación del envío de la encuesta. PENDIENTE DE DISEÑO. 
+
+Escenario 2: Solicitud de depósito a plazo fijo flexible como usuario con cuenta en Surgir desde Home o sección Para ti:
+Vista Inicial:
+ - Dado que selecciono la opción Depósito a plazo fijo flexible en la sección para ti o en el Home. El sistema muestra la vista creación de depósito que incluye imagen o ilustración titulo Depósito a plazo fijo flexible, listado de características informativo que tiene el producto y el botón ""Me interesa"".
+ - Dado que selecciono la opción ""Me interesa"", el sistema muestra la vista para poder ingresar el monto de apertura, Cuenta de origen y el pago de intereses con el cual deseo aperturar mi cuenta. Además, incluye Tooltip en la sección pago de intereses, sección informativo ""Si retiras tu dinero antes del plazo, se aplicará la tasa de cancelación anticipada."" ""Si la fecha de vencimiento del depósito a plazo cae en un día no laborables o feriado, se reprogramará el plazo al primer día hábil siguiente."". Tasa de cancelación anticipada se encuentra en negrita y seleccionable. 
+ - Dado que selecciono el Tooltip en la sección Pago de intereses, el sistema muestra un modal informativo sobre cada Forma de recepción de intereses incluido el botón ""Aceptar"" y el botón cerrar(X) que al ser seleccionada una de estas opciones se cierra el modal y muestra la vista anterior. 
+ - Dado que selecciono la opción ""tasa de cancelación anticipada"", el sistema muestra el modal ""Tasa de cancelación anticipada"" que contempla sección informativa sobre la TREA que se pagará en el transcurso de los 90 días, de la TREA que se pagará de 01 a 181 días y la TREA que se paga en caso transcurra mayor a 181 días, incluido el botón ""Aceptar"" y cerrar(X) que al ser seleccionada cualquiera de estas copiones el modal se cierra y muestra la vista anterior..
+ - Dado que elijo las características del depósito a plazo fijo flexible en la cual ingreso el monto de apertura, cuenta de origen y selecciono el pago de intereses, el sistema muestra una tabla de tasa y plazo de acuerdo a los inputs ingresados. Esta sección contiene: una lista de interés ([porcentaje] TREA, [número de días] días, S/[monto] y Ganarás S/[monto generado]).
+ - Dado que ingreso todos los datos, selecciono una tasa y plazo, el sistema activa el Botón ""Continuar"". Que al ser seleccionada esta opción, el sistema muestra la vista para confirmar Si desempeñé los últimos 2 años en el Perú o en el extranjero, un cargo público importante o una función importante en una organización internacional con las opciones de Si o No, sección informativo de que la información es de carácter declaratorio. 
+ - Una vez elijo una opción, de SI o NO, el sistemas activa el botón Continuar.
+ - En caso selecciono la opción ""Si"" en la sección desempeñé los últimos 2 años en el Perú o en el extranjero, un cargo público importante o una función importante en una organización internacional y el botón Continuar, el sistema  muestra la vista con el siguiente mensaje ""No podemos atenderte por este canal"" incluido el botón ""Continuar con un ejecutivo"". PENDIENTE DE DISEÑO CUANDO SE SELECCIONA LA OPCIÓN CONTINUAR CON UN EJECUTIVO. 
+ - Dado que selecciono la opción ""No"" en la sección desempeñé los últimos 2 años en el Perú o en el extranjero, un cargo público importante o una función importante en una organización internacional y el botón Continuar, el usuario avanza y el sistema procede a realizar una validación con GESINTEL(Listas PEP, Listas negras, FLAFT). 
+validación con GESINTEL:
+ - En caso la validación con GESINTEL se obtiene una respuesta positiva de manera exitosa, el usuario avanza y muestra la vista ""Confirma tu solicitud"" que incluye resumen de la cuenta, Sección de aceptación de términos y condiciones del contrato de Depósito a plazo y la Cartilla de información y la opción ""Aceptar"".
+ - La aceptación de los términos y condiciones se considera obligatorio, por lo que el botón ""Aceptar"" se encuentra en gris hasta que el check sea aceptado o marcado. 
+para la gestión de los términos y condiciones del contrato de cuenta Revisar |HU0039 - Términos y condiciones del contrato de cuenta de ahorro simple|. La gestión será igual que la HU indicada lo que varia es el contenido legal de los términos y condiciones. 
+Confirmación final:
+ - Dado que me encuentro en la vista del resumen de la cuenta y selecciono la opción ""Aceptar"", el usuario avanza y el sistema muestra la vista de confirmación de la cuenta creada que contempla lo siguiente: El título “¡Felicidades, [Nombre]!”, El subtítulo “Tu depósito a Plazo Fijo flexible está creada”, Sección informativa de que los documentos contractuales será enviada al correo, Sección de contacto con el texto Título ""¿Tienes dudas?"" y “Comunícate con nosotros a través de:"" tarjetas con canales de contacto, que incluyen al menos: Un ejecutivo de banca (nombre y número de teléfono), una dirección de oficina y un número para contactarse con algún asesor. Finalmente el botón ""Volver al inicio"" que al ser seleccionada, el sistema redirige al home. 
+Navegación de retroceso:
+ - Dado que presiono la flecha ""←"", entonces el sistema regresa a la pantalla anterior"".,  - ¿Se puede ampliar el monto del depósito durante la vigencia del plazo?
+ - En caso exista la renovaciòn automàtica se realizarà al vencimiento serà con la TREA vigente en ese momento o con la TREA original?
+ - cuáles son las condiciones de cancelación anticipada total y si existe una penalidad por intereses no devengados
+ - Existira un monto minimo para la solicitud de este producto(parametrizado por script) .
+ - El sistema debe presentar siempre la tabla completa de plazos disponibles para el producto, para que el cliente pueda evaluar todas las opciones.
+ - Debe existir la actualización dinámica de la tabla de tasa y plazos al cambiar el monto es una funcionalidad crítica de experiencia de usuario que debe implementarse con tiempo de respuesta menor a un segundo para no interrumpir el flujo de decisión del cliente.
+ - DEFINIR CRITERIO DE ASIGNACIÒN DE UN EJECUTIVO A UN CLIENTE.
+- La secciòn de call center para este producto debe ser configurable en el sistema de gestión de contenidos ya que los horarios de atención pueden cambiar por feriados, emergencias o decisiones operativas. El sistema no debe tener estos datos hardcodeados en el código.
+ - al vencimiento del plazo (renovación automática o devolución del capital más intereses), cómo se notificará al cliente próximo al vencimiento, cuál es el plazo de preaviso para instrucciones de renovación o cancelación, y qué tasa aplica en caso de renovación automática si la TREA vigente cambió. Estas condiciones son obligatorias según la normativa SBS.
+ -  En caso exista interrupción por falta de conexión y realizo algún evento de click o interacción con la app, el sistema debe mostrar un modal con el mensaje de error  interrumpiendo el proceso, mensaje de error: ""No estás conectado a internet conéctate a una red y vuelve a intentarlo"" y el botón Entendido. Al ser seleccionada esta opción el sistema cierra el modal  y redirige al Login. 
+ - Trazabilidad: El sistema captura las interacciones que tendrá el usuario para determinar las actividades frecuentes del usuario. "
+"Productos, Producto activo > Solicitud de crédito Individual/Grupal, , HU0045 - Solicitar financiamiento para mi negocio , Cliente activo , Como cliente de SURGIR, quiero generar una solicitud de crédito para mi negocio, para obtener financiamiento de forma rápida y sin trámites presenciales desde la app, eligiendo el tipo de producto que mejor se adapte a mis necesidades, personalizando el monto y plazo según mi capacidad de pago, y enviando mi solicitud en cualquier momento y lugar, sin necesidad de acudir a una agencia., Escenario 1: Solicitud de crédito como usuario sin cuenta en Surgir: 
+Elección de producto activo:
+ - Dado que no tengo una cuenta en la App Surgir y requiero solicitar un crédito desde la opción Hacerme cliente y Quiero financiamiento para mi negocio. 
+- Dado que seleccione la opción Quiero financiamiento para mi negocio, el sistema muestra la vista que incluye Ilustración o imagen representativa del producto en la parte superior
+Título: ""Obtén tu crédito 100% digital""
+Subtítulo: ""Antes de empezar, necesitarás:""
+Listado de requisitos, donde cada ítem contiene un ícono representativo y una descripción textual del requisito
+Botón ""¡Empezar!"" al pie de la pantalla, siempre habilitado.
+ - Dado que selecciono el botón ""¡Empezar!"", el sistema navega a la vista de Validación de DNI 
+Validación de DNI:
+ - Dado que el usuario selecciona el botón ""¡Empezar!"", el sistema muestra la vista ""Te damos la bienvenida, Ingresa tu número de documento"" que incluye: Selector de tipo de documento con opciones DNI y CE, siendo DNI el valor por defecto, caja de texto para ingresar el número de documento, Widget hCaptcha con checkbox ""Soy humano"", de completado obligatorio, Sección ""Autorizo el tratamiento de mis datos para fines comerciales y/o publicitarios"" de marcado opcional desmarcado por defecto, Botón Continuar, habilitado únicamente cuando el número de documento es válido y el hCaptcha ha sido completado; en caso contrario permanece deshabilitado. Además incluye el botón de retroceso (←) que al ser seleccionado el sistema muestra la vista anterior.
+Validación según el tipo de documento seleccionado:
+DNI: exactamente 8 dígitos numéricos
+CE: entre 9 y 12 caracteres alfanuméricos
+ - Dado que el usuario cambia el tipo de documento luego de haber ingresado un número, el sistema limpia automáticamente el campo de número de documento y aplica las validaciones correspondientes al nuevo tipo seleccionado.
+ - En caso ingreso un número de documento de identidad de manera incorrecta, el sistema muestra el siguiente mensaje debajo de la caja de texto: ""Error: El DNI ingresado no se encuentra asociado a un cliente"".
+Selección de método OTP:
+ - Dado que el usuario selecciona el botón Continuar con los campos válidos, el sistema navega a la vista de Selección de método OTP  ""¿Cómo quieres autenticarte?"" que incluye:
+Subtítulo: ""Te enviaremos un código de autenticación al método que elijas""
+Opción Mensaje de texto, mostrando el número de teléfono enmascarado (ejemplo: * * 194) con su ícono representativo.
+Opción Correo electrónico, mostrando la dirección enmascarada (ejemplo: qwe**@gma**.com) con su ícono representativo.
+Solo se puede seleccionar una opción a la vez; la opción seleccionada se resalta visualmente con borde y radio button activo, botón retroceso que al ser seleccionada el sistema redirige a la vista anterior manteniendo los datos previamente ingresados, Enlace ""No tengo acceso a estos datos"" que al ser seleccionado, el sistema muestra el modal ""Actualicemos tus datos"" que incluye mensaje: ""Si no tienes acceso a los datos mostrados, podrás actualizarlos desde nuestra web."" Botón Actualizar datos y botón Entendido, que al ser seleccionada esta opción, el sistema cierra el modal. PENDIENTE DE DISEÑO EN CASO SE SELECCIONE EL BOTÓN ACTUALIZAR DATOS. 
+ - Dado que el usuario selecciona el botón Continuar con una opción seleccionada, el sistema envía el código OTP al medio elegido y navega a la vista de validación del código OTP.
+Validación del código OTP:
+ - Para la validación del OTP. Revisar |HU007 - Autenticación multifactor OTP|, considerar que el envió del código OTP puede ser por SMS o Mailing. 
+
+Oferta de Crédito en Paralelo Renovado y Ampliado:
+ - Dado que el usuario completó exitosamente la validación OTP, el sistema realiza una validación de los créditos disponibles que se tiene para el usuario, en caso cuente con un crédito preaprobado y ampliación de crédito, el sistema muestra la vista ""¡[Nombre], tienes un crédito preaprobado de S/ [Monto]!"" que incluye: Ilustración o imagen representativa en la parte superior, Subtítulo: ""¿Cómo deseas obtenerlo?"", dos tarjetas que incluyen: 
+ * ""Quiero ampliar mi crédito actual"" que incluye: Descripción: ""Pagarás tu deuda vigente y recibirás la diferencia""
+Enlace ""Ver mi crédito vigente >"", Etiqueta ""Pide hasta:"" con el monto máximo preaprobado (ejemplo: S/ 15,000.00).
+ * ""Quiero un nuevo crédito"" que incluye:
+Descripción: ""Obtendrás un crédito paralelo a tu crédito vigente"", Etiqueta ""Pide hasta:"" con el monto máximo preaprobado (ejemplo: S/ 15,000.00).
+Solo se puede seleccionar una opción a la vez; la opción seleccionada se resalta visualmente con borde y radio button activo, Botón Continuar, deshabilitado por defecto mientras no se seleccione ninguna opción.
+ - Dado que selecciono la opción Ver mi crédito vigente que se encuentra en la card Quiero ampliar mi crédito actual, el sistema muestra el modal ""Tu crédito vigente"" que incluye Capital pendiente por pagar, cuota mensual, Cuota pendiente y el botón Aceptar, cerrar(x) que al ser seleccionado se cierra el modal.
+ - Dado que selecciono la tarjeta ""Quiero ampliar mi crédito actual"" el sistema muestra la vista ""Elige hasta cuando ampliar tu crédito"", se detalla en el apartado Oferta de crédito Ampliado los campos que contempla la vista. 
+ - En caso selecciono la tarjeta ""Quiero un nuevo crédito"" el sistema muestra la vista ""Elige el monto de tu crédito"", se detalla en el apartado Oferta de Crédito Renovado los campos que contempla la vista. 
+
+Oferta de Crédito Ampliado:
+ - En caso en la validación de los créditos disponibles que se tiene para el usuario, cuente con un crédito de ampliación de crédito, el sistema muestra la vista ""¡[Nombre], puedes ampliar tu crédito vigente hasta S/ [Monto]!"" que incluye: Ilustración o imagen representativa en la parte superior, Título personalizado con el monto máximo preaprobado, donde la frase ""crédito vigente hasta S/ [monto]"" se muestra en color rojo destacado, Campo ""Monto de nuevo crédito ampliado"" que incluye: Ícono de moneda (S/) a la izquierda, Caja de texto editable con el monto, con el campo inicial por defecto en blanco, Botones ""−"" y ""+"" para decrementar e incrementar el monto, Teclado numérico que se despliega automáticamente al seleccionar en el campo. 
+Texto de rango informativo debajo del campo: ""Pide desde S/[monto mínimo] hasta S/[monto máximo]"", mostrado dinámicamente según el perfil del usuario
+Selector de montos rápidos en formato de chips horizontales deslizables (ejemplo: S/ 5,000.00, S/ 7,500.00, S/ 10,000.00, S/ 15,...), al seleccionar uno el campo de monto se actualiza automáticamente.
+Sección ""Detalles de la ampliación"" con ícono de información (?) que al presionarse muestra un modal con la descripción ""¿Cómo funciona una ampliación de crédito? Tu nuevo crédito se usará para pagar tu deuda vigente y recibirás el monto restante"".
+Además esta sección contempla el campo
+Nuevo crédito (monto total solicitado), 
+Deuda vigente (monto de deuda actual del usuario), Recibirás (diferencia calculada automáticamente entre el nuevo crédito y la deuda vigente), Botón ""Continuar"" habilitado cuando el monto ingresado se encuentra dentro del rango permitido.
+ - Dado que el usuario modifica el monto manualmente en la caja de texto, el sistema recalcula en tiempo real los valores de Nuevo crédito, Deuda vigente y Recibirás en la sección de detalles.
+ - Dado que el usuario selecciona un chip de monto rápido, el sistema actualiza automáticamente el campo de monto y recalcula los detalles de la ampliación
+Dado que el usuario ingresa un monto fuera del rango permitido (menor al mínimo o mayor al máximo), el sistema muestra un mensaje de validación indicando el rango válido y deshabilita el botón Continuar. Pendiente del unhappy.
+
+Oferta de Crédito Renovado:
+- En caso en la validación de los créditos disponibles que se tiene para el usuario, cuente con un crédito de un crédito preaprobado o renovado, el sistema muestra la vista ""¡[Nombre], tienes un crédito preaprobado S/ [Monto]!"" que incluye: Ilustración o imagen representativa en la parte superior, Título personalizado con el monto máximo preaprobado, donde la frase ""preaprobado de S/ [monto]"" se muestra en color rojo destacado, Campo ""¿Cuánto necesitas?"" que incluye: Ícono de moneda (S/) a la izquierda, Caja de texto editable con el monto, con el campo inicial por defecto en blanco, Botones ""−"" y ""+"" para decrementar e incrementar el monto, Teclado numérico que se despliega automáticamente al seleccionar en el campo. Finalmente contempla el botón ""Continuar"" en gris inicialmente y se habilita cuando el monto ingresado es correcto.  
+
+Selección de plazo: 
+ - Dado que el usuario seleccionó el monto deseado y presionó Continuar en el paso anterior, el sistema muestra la vista ""¿En cuánto tiempo pagarás tu crédito?"" que incluye:
+Título donde la frase ""pagarás tu crédito"" se muestra en color rojo destacado, Listado de opciones de plazo en formato de tarjetas seleccionables (radio button), cada una mostrando: 
+Plazo en meses (ejemplo: 6 meses, 8 meses, 12 meses, 24 meses, 36 meses)
+TCEA correspondiente (ejemplo: TCEA 13.20%)
+Cuota mensual alineada a la derecha (ejemplo: S/ 2,600.00)
+Monto total a pagar (ejemplo: Pagarás S/ 15,900.00)
+Solo se puede seleccionar una opción a la vez; la opción seleccionada se resalta visualmente con borde y radio button activo, Texto informativo al pie de las opciones: ""Esta información es una simulación preliminar, los valores finales podrán cambiar al momento de emitirse el cronograma"", Botón Continuar habilitado únicamente cuando se ha seleccionado alguna opción de plazo, Botón de retroceso (←) y opción Escoger un plazo distinto.
+ - Dado que el usuario no ha seleccionado ninguna opción de plazo, el botón Continuar permanece en estado deshabilitado (color gris)
+Dado que el usuario selecciona una opción de plazo, el sistema resalta visualmente la tarjeta seleccionada y habilita el botón Continuar.
+ - Dado que el usuario presiona el botón de retroceso (←), el sistema regresa a la vista anterior manteniendo el monto previamente ingresado
+
+Escoger un plazo distinto::
+ - Dado que selecciono la opción Escoger un plazo distinto el sistema muestra en lugar del listado de tarjetas:
+Etiqueta ""Plazo"" con el valor seleccionado en texto (ejemplo: 6 meses, 18 meses, etc), Slider horizontal deslizable con rango desde 6 meses hasta 36 meses, con el indicador posicionado en el valor actual, Etiquetas de los extremos del slider: 6 meses (izquierda) y 36 meses (derecha), Tarjeta de resumen debajo del slider que muestra dinámicamente:
+Plazo seleccionado (ejemplo: 18 meses)
+TCEA correspondiente (ejemplo: TCEA 13.20%)
+Monto total a pagar (ejemplo: Pagarás S/ 18,300.00)
+Texto informativo: ""Esta información es una simulación preliminar, los valores finales podrán cambiar al momento de emitirse el cronograma""
+Botón Continuar: siempre habilitado al tener el slider un valor por defecto.
+Botón Retroceso: Dado que el usuario presiona el botón de retroceso (←), el sistema regresa a la vista anterior manteniendo el monto previamente ingresado.
+ - Dado que el usuario arrastra el slider a una nueva posición, el sistema actualiza en tiempo real el valor del plazo, la cuota mensual y el monto total a pagar en la tarjeta de resumen
+Dado que el usuario suelta el slider en una posición intermedia entre dos valores de plazo disponibles, el sistema ajusta automáticamente al valor de plazo válido más cercano.
+
+Selección de fecha de primer pago:
+ - Dado que el usuario selecciona un plazo y la opción Continuar, el sistema muestra la Vista ""Selecciona la fecha de pago de tu primera cuota"" que incluye campo Fecha de primer pago, sección informativa de que el día que se elija también será la fecha de vencimiento de la cuota cada mes, botón Continuar y volver(<-) que al seleccionar esta opción, el sistema muestra la vista anterior. 
+ - Dado que selecciono el campo “Fecha de primer pago” o el ícono de calendario, el sistema muestra un componente de calendario mediante un modal que incluye Mes y año actuales, en la parte superior (ejemplo: “Ene 2026”), Los días no válidos (por ejemplo, fechas en el pasado o fuera del rango permitido) se muestran deshabilitados y no son seleccionables.
+ - Dado que visualizo el calendario, cuando selecciono un día válido, el sistema resalta visualmente el día elegido (por ejemplo, con un círculo de color o fondo distinto). El sistema actualiza el campo “Fecha de primer pago” con la fecha seleccionada en formato DD/MM/AAAA (ejemplo: 23/01/2026). El sistema cierra el calendario y retorna a la vista “Selecciona la fecha de pago de tu primera cuota”. El botón Continuar cambia a estado habilitado.
+ - Dado que ingreso una fecha y selecciono el botón Continuar, el sistema muestra la vista ""Ingresa la cuenta dónde recibirás tu dinero"".
+
+Cuenta dónde recibirás tu dinero para ampliación de crédito: 
+ - Dado que seleccione la opción Continuar en la vista ""Selecciona la fecha de pago de tu primera cuota"", el sistema muestra la vista ""Ingresa la cuenta dónde recibirás tu dinero"" incluido 
+Lista desplegable “Entidad bancaria” con placeholder “Seleccionar” cuando no se ha elegido ninguna opción, 
+Ícono de flecha hacia abajo a la derecha del campo. Campo “Número de cuenta”, caja de texto vacía inicialmente, Campo “Código interbancario – CCI” caja de texto vacía inicialmente, Ícono de información ( ? ) a la derecha de la etiqueta, Mensaje informativo en recuadro amarillo con ícono de advertencia: “La cuenta que ingreses debe estar a tu nombre.”, Botón Continuar mostrado en color gris y deshabilitado cuando los campos obligatorios no son válidos y Botón de retroceso (←) Al ser seleccionado, el sistema regresa a la vista anterior del flujo, manteniendo los datos ya registrados.
+ - Dado que selecciono el campo “Entidad bancaria”, el sistema muestra un listado de entidades bancarias disponibles en un selector desplegable. Solo se permite seleccionar una entidad bancaria a la vez.
+ - Dado que selecciono una entidad bancaria del listado (por ejemplo, “BBVA Continental”), el sistema cierra el desplegable. El campo “Entidad bancaria” muestra el valor seleccionado.
+ - Dado que empiezo a escribir en el campo número de cuenta, el sistema permite ingresar dígitos y guiones.
+ - Dado que el campo “Código interbancario – CCI” está visible, cuando empiezo a escribir en dicho campo, el sistema permite ingresar solo los caracteres permitidos (por ejemplo, dígitos y guiones, como 829-02029320303949595).
+ - En caso los campos no cumplen con el formato/longitud requerida, el sistema marca el campo como inválido (borde en rojo y mensaje de error, a definir PENDIENTE DE UNHAPPY).
+ - Dado que selecciono el ícono de información ( ? ) junto al texto “Código interbancario – CCI”, El sistema muestra una ayuda (tooltip o modal ligero) explicando qué es el CCI y/o dónde encontrarlo, según se defina en contenidos. Al cerrar la ayuda, el sistema mantiene los datos ingresados en los campos.
+ - Dado que me encuentro en la vista “Ingresa la cuenta dónde recibirás tu dinero” Si alguno de los campos obligatorios (Entidad bancaria, Número de cuenta, Código interbancario – CCI) está vacío, el botón Continuar se muestra en color gris y no ejecuta ninguna acción al presionarlo. Si todos los campos obligatorios están completos y son válidos. el botón Continuar Se muestra en color rojo. Permanece habilitado para avanzar en el flujo.
+
+Cuenta dónde recibirás tu dinero para crédito preaprobado o paralelo: 
+ - Dado que previamente seleccioné o tengo la opción para poder solicitar un crédito preaprobado, el sistema me muestra la opción para seleccionar el método de desembolso que estarán compuestos mediante tarjetas y radio button:
+En otra cuenta: recibir el dinero en una cuenta bancaria que registrará.
+En agencia BanBif: recibir el dinero en una agencia BanBif.
+ - Si selecciono la opción en otra cuenta, se habilitan los campos para registrar la cuenta bancaria (entidad bancaria, número de cuenta, CCI).
+Si el usuario selecciona En agencia BanBif, no se solicitan datos de cuenta en esta vista.
+ - Dado que selecciono la opción ""En otro cuenta"", el sistema pinta el radio button de la tarjeta que corresponde habilitando los campos Lista desplegable “Entidad bancaria” con placeholder “Seleccionar” cuando no se ha elegido ninguna opción, 
+Ícono de flecha hacia abajo a la derecha del campo. Campo “Número de cuenta”, caja de texto vacía inicialmente, Campo “Código interbancario – CCI” caja de texto vacía inicialmente, Ícono de información ( ? ) a la derecha de la etiqueta, Mensaje informativo en recuadro amarillo con ícono de advertencia: “La cuenta que ingreses debe estar a tu nombre.”, Botón Continuar mostrado en color gris y deshabilitado cuando los campos obligatorios no son válidos y Botón de retroceso (←) Al ser seleccionado, el sistema regresa a la vista anterior del flujo, manteniendo los datos ya registrados.
+ - Dado que selecciono el campo “Entidad bancaria”, el sistema muestra un listado de entidades bancarias disponibles en un selector desplegable. Solo se permite seleccionar una entidad bancaria a la vez.
+ - Dado que selecciono una entidad bancaria del listado (por ejemplo, “BBVA Continental”), el sistema cierra el desplegable. El campo “Entidad bancaria” muestra el valor seleccionado.
+ - Dado que empiezo a escribir en el campo número de cuenta, el sistema permite ingresar dígitos y guiones.
+ - Dado que el campo “Código interbancario – CCI” está visible, cuando empiezo a escribir en dicho campo, el sistema permite ingresar solo los caracteres permitidos (por ejemplo, dígitos y guiones, como 829-02029320303949595).
+ - En caso los campos no cumplen con el formato/longitud requerida, el sistema marca el campo como inválido (borde en rojo y mensaje de error, a definir PENDIENTE DE UNHAPPY).
+ - Dado que selecciono el ícono de información ( ? ) junto al texto “Código interbancario – CCI”, El sistema muestra una ayuda (tooltip o modal ligero) explicando qué es el CCI y/o dónde encontrarlo, según se defina en contenidos. Al cerrar la ayuda, el sistema mantiene los datos ingresados en los campos.
+ - Dado que me encuentro en la vista “Ingresa la cuenta dónde recibirás tu dinero” Si alguno de los campos obligatorios (Entidad bancaria, Número de cuenta, Código interbancario – CCI) está vacío, el botón Continuar se muestra en color gris y no ejecuta ninguna acción al presionarlo. Si todos los campos obligatorios están completos y son válidos. el botón Continuar Se muestra en color rojo. Permanece habilitado para avanzar en el flujo.
+
+Selección de modalidad de seguro desgravamen:
+ - Dado que en la vista ""Ingresa la cuenta dónde recibirás tu dinero"" selecciono la opción continuar el sistema muestra la vista ""Selecciona tu modalidad de seguro desgravamen"" que incluye Ilustración gráfica en la parte superior, Título: “Selecciona tu modalidad de Seguro de Desgravamen”, donde “Seguro de Desgravamen” se muestra en color rojo. Texto descriptivo: “Cubrirás tu deuda en caso de fallecimiento o invalidez total y permanente.”, 
+Subtítulo de sección: “Modalidades”. Enlace alineado a la derecha: “Ver comparación”. Listado de tarjetas seleccionables de modalidad (al menos):
+Porcentual: Etiqueta principal: “Porcentual”. Texto de costo “Costo mensual 0.15% del saldo capital”.
+Radio button para selección de modalidad.
+Porcentual con Devolución: Etiqueta principal: “Porcentual con Devolución”. Texto de costo: “Costo mensual 0.50% del saldo capital”. Radio button para selección.
+Sección informativa inferior: Pregunta: “¿Ya tienes un seguro?” acompañada de ícono ( > ) indicando que es accionable. Al seleccionar esta opción, el sistema muestra el modal informativo ""Más sobre endosar un seguro"" incluido las opciones Cerrar (x) y Entendido que al ser seleccionada cualquiera de estas opciones, el sistema cierra el modal manteniendo la vista anterior, el Botón Continuar de color gris y deshabilitado mientras, Botón de retroceso (←), al seleccionarlo, el sistema regresa a la vista anterior del flujo, manteniendo los datos previamente ingresados.
+ - Dado que visualizo la lista de modalidades de seguro, cuando selecciono una tarjeta (por ejemplo, “Porcentual”), El sistema marca el radio button de esa tarjeta como activo resaltando visualmente la tarjeta seleccionada (borde/color de fondo). 
+ - Dado que cambio la selección a otra modalidad (por ejemplo, de “Porcentual” a “Porcentual con Devolución”) El sistema aplica la misma lógica: Nueva tarjeta seleccionada y resaltada.
+ - Dado que selecciono una modalidad, el sistema activa el botón Continuar que al ser seleccionado, el usuario avanza en el flujo y muestra la vista que inicializa el proceso de valdación biométrica. 
+
+Validación biométrica:
+ - Para la validación de biometría revisar la siguientes Historias de usuario. [HU008 - Preparación para la captura de documento de identidad y biometria facial], [HU009 - Cliente Sin clave > Almacenamiento de datos biométricos.], [HU0011 - Cliente Sin clave > captura de documento de identidad.] y [HU0011 - Cliente Sin clave > captura de biometría facial.].
+
+Confirmación de nuevo crédito:
+ - Dado que finalizo con el proceso de validación de biometría, el sistema muestra la vista Confirma tu nuevo crédito que incluye Descripción: Nombre del producto, Tipo de operación, Monto de crédito, TCEA, Plazo, Total a pagar, Modalidad de seguro de desgravamen. 
+Cuota mensual: Monto, fecha del primer vencimiento, Dia de pago, Sección informativa sobre la información presentada que es preliminar que los valores finales podrán cambiar al momento de emitirse el cronograma, Aviso: Te enviaremos todos los documentos contractuales a tu correo electrónico, sección para aceptar los acuerdos del contrato y el botón Confirmar inicialmente en gris hasta que los términos y condiciones sean aceptado. 
+ -  para la gestión de los términos y condiciones del contrato de cuenta Revisar |HU0039 - Términos y condiciones del contrato de cuenta de ahorro simple|. Lo que varia es el contenido legal del producto.
+ - Una vez aceptado los términos y condiciones, el sistema activa el botón Confirmar. 
+ - Dado que selecciono el botón Confirmar, el sistema realiza la validación de existencia de seguro asociado al usuario y si se tiene beneficiarios del seguro. En caso no exista los seguros asociados el sistema muestra la vista de confirmación final.
+
+Registro de los beneficiarios:
+ - Dado que en la vista ""Confirma tu nuevo crédito"" selecciono el botón ""Confirmar"", el sistema detecta que el usuario tiene seguro a su cargo, el sistema muestra la vista ""Antes de terminar, registra los beneficiarios para tu seguro"" que incluye Previamente el seguro contratado con opción navegable para poder visualizar el detalle, sección Beneficiarios que incluye el botón Agregar beneficiarios y el botón Registrar Beneficiarios.
+ - Dado que selecciono en el nombre del seguro que adquirí, el sistema muestra una vista que se despliega hacia arriba que incluye Título ""Conoce tu plan de Seguro Vida, Nombre del seguro, Monto, Beneficiarios, lista de Descuentos y el botón Entendido y Cerrar que al ser seleccionado cualquiera de estas opciones cierra la vista y muestra la vista anterior.
+ - Dado que selecciono el botón Agregar beneficiario, el sistema muestra La vista ""Agregar beneficiario"" que incluye Tipo de documento(No editable), Número de identidad, Primer nombre, Segundo nombre(Opcional), Apellido paterno, Apellido materno, fecha de nacimiento, Lista desplegable Estado civil, Radio button Género, Teléfono de celular, Lista desplegable parentesco, participación de porcentaje del seguro y el botón Agregar y Cerrar que al ser seleccionado esta opción el sistema cierra la vista ""Agregar beneficio"" mostrando la vista anterior.     
+ - Dado que agrego los datos considerados obligatorios, el sistema activa el botón Agregar que al ser seleccionado, el sistema muestra el nombre completo del beneficiario y los botones para editar o eliminar al beneficiario. 
+ - Dado que selecciono el icono de eliminación, el sistema muestra un modal con el siguiente mensaje ¿Estás seguro de eliminar al beneficiario [Nombre del beneficiario]? con la opción de Aceptar o Cerrar que al seleccionar la opción cerrar, el sistema cierra el modal sin realizar ninguna modificación, en caso el usuario selecciona la opción Aceptar, el sistema eliminar al beneficiario seleccionado. (PENDIENTE DE CONFIRMACIÓN CON DISEÑO) 
+ - Dado que selecciono el icono del lápiz o de edición, el sistema muestra la vista ""Agregar beneficio"" con los datos precargado que podrán ser editados. 
+ - El botón principal Agregar beneficiarios se encuentra en gris hasta que exista como mínimo un beneficiario agregado. 
+
+Confirmación final:
+ - Dado que en la vista ""Antes de terminar, registra los beneficiarios para tu seguro"" Selecciono el botón ""Registrar beneficiarios"" el sistema muestra la vista  de confirmación final que incluye El título “¡Felicidades, [Nombre]!”, El subtítulo “En breve recibirás tu crédito”, El texto “En breve recibirás tu crédito”. Sección “Siguientes pasos"" con: 
+ * Paso 1 “Registraste tu solicitud”,
+indicando que se envió el detalle de la solicitud al correo registrado del cliente, incluyendo el correo en el texto. 
+ * Paso 2 ""Desembolso"" Indicando que recibirá el monto del crédito en la cuenta bancaria registrada en un plazo no mayor a 1 día hábil. Asimismo, incluye. Sección de Escala de recomendación (NPS) 
+“¿Considerando este proceso de apertura de cuenta, qué tan probable es que recomiendes a SURGIR a un amigo o familiar?” 
+con una escala de selección de 1 a 10, donde solo se puede seleccionar un valor a la vez, Campo con lista desplegable para la pregunta: “¿Cómo te enteraste de la Cuenta de Ahorro simple?” permitiendo seleccionar una de las opciones configuradas, campo de texto para responder “¿Por qué?” permitiendo ingresar hasta 500 caracteres, mostrando un contador en formato ""[caracteres_ingresados]/500”, la sección de contacto con el texto “Comunícate con nosotros a través de:"" seguida de tarjetas con canales de contacto, que incluyen al menos: Un ejecutivo de banca (nombre y número de teléfono), una dirección de oficina y un número para contactarse con algún asesor. Además Incluye el botón ""Enviar respuesta"".
+ - Dado que el botón “Enviar respuesta” se muestra inicialmente deshabilitado. Una vez ingrese los tres datos(""¿Selección de como te enteraste del depósito a plazo?"", ""¿Considerando este proceso, que tan probable es que recomiendes a SURGIR  a un amigo o familiar?"", ""¿Por qué?"") se activa el botón ""Enviar respuesta"". Dado que selecciono esta opción el sistema muestra un mensaje de confirmación del envío de la encuesta. PENDIENTE DE DISEÑO. 
+
+Escenario 2: Solicitud de crédito como usuario con cuenta en Surgir desde Home o sección Para ti:
+Vista Inicial:
+ - Dado que selecciono la opción Solicitar crédito en la sección para ti o en el Home. El sistema muestra la vista creación de depósito que incluye imagen o ilustración titulo Obtén el financiamiento que necesitas para tu negocio, listado de características informativo que tiene el producto y el botón ""Empezar"".
+ - Dado que selecciono la opción ""Empezar"", el sistema muestra la vista ¿Qué tipo de financiamiento necesitas? que incluye Título de sección: “¿Qué tipo de financiamiento necesitas?”,
+lista de opciones de financiamiento, cada una en su tarjeta:
+  * Crédito Mujeres Unidas
+Texto descriptivo: “Soy emprendedora y quiero mejorar mi historial crediticio.”
+  * Crédito Prospera
+Texto descriptivo: “Necesito capital de trabajo para mi negocio.”
+  * Crédito Construyendo Sueños
+Texto descriptivo: “Quiero mejorar la infraestructura de mi negocio.”
+Cada tarjeta incluye un selector tipo radio button a la izquierda del nombre del producto, Botón “Continuar” deshabilitado (color gris) mientras no exista ninguna opción seleccionada.
+ - Dado que selecciono una de las tarjetas, el sistema marca el radio button de la opción seleccionada. Si había otra opción seleccionada previamente, el sistema la desmarca, permitiendo solo una selección activa a la vez y se activa el botón ""Continuar"". 
+ - Dado que selecciono el botón ""Continuar"", el sistema muestra la vista que permite realizar la personalización del crédito que incluye el monto de crédito, plazo deseado, fecha de cuando lo necesitas y el botón Continuar en gris inicialmente. 
+  * Dado que el usuario visualiza el campo de monto de crédito, cuando interactúa con los botones ""+"" o ""−"" Entonces el monto debe incrementarse o decrementarse en un valor PREDEFINIDO, sin sobrepasar los límites mínimo y máximo permitidos por el sistema
+El monto debe mostrarse con formato monetario en soles (S/) con dos decimales
+El campo por defecto inicialmente se encuentra en blanco. 
+  * Dado que el usuario selecciona el campo ""Plazo deseado"" Cuando se despliega el selector
+Entonces debe mostrarse un listado con las opciones: 6 meses, 12 meses, 24 meses y 36 meses, La opción seleccionada por defecto es 6 meses. Al seleccionar una opción, el modal se cierra y el campo muestra el valor elegido.
+  * Dado que el usuario toca el campo de fecha Cuando lo necesitas, cuando se abre el selector de fecha, entonces debe mostrarse un calendario con formato DD/MM/AAAA.
+No se deben permitir fechas pasadas.
+El campo es obligatorio para continuar.
+ - Dado que completo todos los campos que son requeridos, el sistema activa el botón ""Continuar"" y al ser seleccionado el usuario    avanza al siguiente paso del flujo de solicitud de crédito y el sistema muestra el resumen de Solicitud que incluye el monto solicitado, Descripción de la solicitud: Producto, plazo, fecha estimada, sección informativo la información ingresada que corresponde a la una solicitud, la aprobación del crédito está sujeto a una evaluación incluido el botón ""Terminar"" y cerrar ""X"" que al ser seleccionada esta opción, el sistema muestra un modal que incluye PENDIENTE DE DISEÑO. 
+ - Dado que el usuario selecciona la opción Terminar, el sistema envia un mailing de confirmación de solicitud al usuario y muestra la vista de confirmación de solicitud que incluye Título ¡Recibimos tu solicitud!, subtitulo Uno de nuestros asesores te contactará para evaluarte en máximo un día hábil, sección informativo la aprobación del crédito está sujeto a una evaluación incluido el botón ""Volver a inicio"" y cerrar ""X"" que al ser seleccionada cualquiera de estas opciones, el sistema redirige al Home. ,  - El cliente podrà solicitar financiamiento antes o despuès de haber iniciado sesiòn. 
+ - No puede tener una solicitud de crédito activa en el mismo producto; si ya tiene una en estado ""En evaluación"" o ""Pre-aprobada"", el sistema debe redirigirlo al seguimiento de esa solicitud en lugar de permitir crear una nueva.
+ -El cliente no puede tener créditos en estado de mora mayor a 8 días, ya que esto lo reclasifica como CPP según la SBS y lo inhabilita para nuevos créditos.
+ -El cliente no puede tener créditos castigados, en cobranza judicial o con calificación Deficiente, Dudoso o Pérdida en SURGIR ni en ninguna otra entidad del sistema financiero peruano según reporte de central de riesgos SBS. 
+ - El cliente no debe estar incluido en listas de restricción PLAFT (OFAC, ONU, GAFI, lista negra SBS), lo cual debe verificarse automáticamente al iniciar la solicitud. 
+ - El monto que ingresa el cliente es referencial; el monto final aprobado puede ser menor según la capacidad de pago determinada en la evaluación crediticia.
+ - El plazo mínimo puede ser 3 meses y el máximo entre 24 y 48 meses según el producto.
+ - La fecha en la secciòn ""cuando lo necesitas"", debe permitir ingresar la fecha desde hoy en adelante. 
+ - DEFINIR CRITERIO DE ASIGNACIÒN DE UN EJECUTIVO A UN CLIENTE.
+ -  El desembolso del crédito aprobado no ocurre en el mismo flujo de la solicitud, es un proceso posterior que puede realizarse por abono en cuenta de ahorros SURGIR, transferencia interbancaria, o pago en agencia según el canal habilitado. Ageno a los procesos que contempla el sistema. 
+ - En caso exista interrupción por falta de conexión y realizo algún evento de click o interacción con la app, el sistema debe mostrar un modal con el mensaje de error  interrumpiendo el pro"
+"Productos, Producto activo > solicitud y pre contrataciòn de crèdito pre aprobado (activo), , HU046 - Credito pre aprobado , Cliente activo , Como cliente de SURGIR, quiero activar mi préstamo preaprobado personalizando el monto y plazo que mejor se adapten a mi capacidad de pago, para recibir el dinero de forma rápida eligiendo las condiciones que me convengan dentro del límite preaprobado., Solicitud de crédito pre aprobado como usuario con cuenta en Surgir desde Home o sección Para ti:
+Vista Inicial:
+ - Dado que selecciono la opción ""¡Tienes un crédito preaprobado!"" o ""Solicitar crédito preaprobado""  en la sección para ti o en el Home. El sistema muestra la vista ""Crédito preaprobado"" que incluye Botón de retroceso (←) alineado a la izquierda, Título centrado: “Crédito preaprobado”, Sección gráfica superior sobre fondo rojo: Ilustración representativa, Sección de contenido Texto destacado: “¡Tienes un crédito preaprobado!”. Tarjeta informativa del crédito que contiene: Monto del crédito en formato monetario grande y centrado:
+“S/ [monto].00” (ejemplo: “S/ 15,000.00”). Fila “Tasa de interés (TEA)”: Ícono de información (?) al lado de la etiqueta. Valor porcentual alineado a la derecha (ejemplo: “32.35 %”). “Oferta vigente hasta”: 
+Fecha de vigencia alineada a la derecha en formato DD/MM/AAAA (ejemplo: “12/03/2025”). Botón principal en la parte inferior “¡Me interesa!”.
+ - Dado que selecciono el icono de interrogación que se encuentra a lado de Tasa de interés (TEA), el sistema muestra un modal informativo sobre la TEA con el botón Cerrar que al ser seleccionado se oculta el modal mostrando la vista anterior. 
+ - Dado que selecciono el botón ¡Me interesa! el sistema muestra la vista ""Elige el monto de tu crédito"" que incluye Campo ""¿Cuánto necesitas?"" que incluye: Ícono de moneda (S/) a la izquierda, Caja de texto editable con el monto, con el campo inicial por defecto en blanco, Botones ""−"" y ""+"" para decrementar e incrementar el monto, Teclado numérico que se despliega automáticamente al seleccionar en el campo, texto “Pide desde S/ [monto mínimo] hasta S/ [monto máximo]”, Lista horizontal de chips de montos rápidos (ejemplos: “S/ 1,000.00”, “S/ 2,500.00”, “S/ 5,000.00”, “S/ 10,000.00”, …). Finalmente contempla el botón ""Continuar"" en gris inicialmente y se habilita cuando el monto ingresado es correcto. 
+
+Selección de plazo: 
+ - Dado que ingresé el monto deseado y presiono el botón Continuar en el paso anterior, el sistema muestra la vista ""¿En cuánto tiempo pagarás tu crédito?"" que incluye: 
+Listado de opciones de plazo en formato de tarjetas seleccionables (radio button), cada una mostrando: 
+Plazo en meses (ejemplo: 6 meses, 8 meses, 12 meses, 24 meses, 36 meses).
+TCEA correspondiente (ejemplo: TCEA 13.20%).
+Cuota mensual alineada a la derecha (ejemplo: S/ 2,600.00).
+Monto total a pagar (ejemplo: Pagarás S/ 15,900.00).
+Solo se puede seleccionar una opción a la vez; la opción seleccionada se resalta visualmente con borde y radio button activo, Texto informativo al pie de las opciones: ""Los montos mostrados son aproximados y pueden variar al momento de emitir los documentos contractuales"", Botón Continuar habilitado únicamente cuando se ha seleccionado alguna opción de plazo, Botón de retroceso (←), Botón Cerrar y opción Escoger un plazo distinto.
+ - Dado que el usuario no ha seleccionado ninguna opción de plazo, el botón Continuar permanece en estado deshabilitado (color gris).
+ - Dado que el usuario selecciona una opción de plazo, el sistema resalta visualmente la tarjeta seleccionada y habilita el botón Continuar.
+ - Dado que el usuario presiona el botón de retroceso (←), el sistema regresa a la vista anterior manteniendo el monto previamente ingresado. 
+ - Dado que selecciono la opción cerrar (x), el sistema muestra un modal que incluye Titulo: ""¿Estás seguro de querer salir?"", texto ""Si sales, perderás todo tu progreso"" incluido el botón ""Continuar"", ""Si, quiero Salir"" y cerrar (x) Si se selecciona la opción ""Continuar"" o la opción cerrar el sistema cierra el modal mostrando la vista anterior. En caso se seleccione la opción ""Si, quiero salir"" el sistema cierra el modal interrumpiendo el proceso y redirige al home. 
+
+Escoger un plazo distinto:
+ - Dado que selecciono la opción ""Escoger un plazo distinto"", el sistema muestra en lugar del listado de tarjetas:
+Etiqueta ""Plazo"" con el valor seleccionado en texto (ejemplo: 6 meses, 18 meses, etc), Slider horizontal deslizable con rango desde 6 meses hasta 36 meses, con el indicador posicionado en el valor actual, Etiquetas de los extremos del slider: 6 meses (izquierda) y 36 meses (derecha), Tarjeta de resumen debajo del slider que muestra dinámicamente:
+Plazo seleccionado (ejemplo: 18 meses)
+TCEA correspondiente (ejemplo: TCEA 13.20%)
+Monto total a pagar (ejemplo: Pagarás S/ 18,300.00).
+Texto informativo: ""Los montos mostrados son aproximados y pueden variar al momento de emitir los documentos contractuales""
+Botón Continuar: Habilitado al tener el slider un valor por defecto.
+Botón Retroceso: Dado que el usuario presiona el botón de retroceso (←), el sistema regresa a la vista anterior manteniendo el monto previamente ingresado.
+ - Dado que el usuario arrastra el slider a una nueva posición, el sistema actualiza en tiempo real el valor del plazo, la cuota mensual y el monto total a pagar en la tarjeta de resumen
+Dado que el usuario suelta el slider en una posición intermedia entre dos valores de plazo disponibles, el sistema ajusta automáticamente al valor de plazo válido más cercano.
+
+Selección de modalidad de seguro desgravamen:
+ - Dado que en la vista ""¿En cuanto tiempo pagarás tu crédito?"" selecciono la opción ""Continuar"", el sistema muestra la vista ""Elige tu modalidad de Seguro Desgravamen"" que incluye Subtítulo de sección: “Modalidades”. Enlace alineado a la derecha: “Ver comparación”. Listado de tarjetas seleccionables:
+Desgravamen porcentual: Texto “Costo mensual S/ 2.50, radio button para selección de modalidad.
+Desgravamen Devolución: Texto “Costo mensual S/5.50. Radio button para selección.
+Sin Desgravamen: Texto “Costo mensual S/0.00. Radio button para selección.
+Opción Endosar seguro de vida, Sección informativa sobre Tasa de interés (TEA), Cuota mensual, Total aproximado a pagar cada uno incluido un tooltip que al ser seleccionada se muestra un modal con la opción cerrar que al ser seleccionada se cierra el modal y muestra la vista anterior. Finalmente se tiene el botón ""Continuar"" y Botón de retroceso (←), al seleccionarlo, el sistema regresa a la vista anterior del flujo, manteniendo los datos previamente ingresados. 
+ - Dado que selecciono en la opción ""Endosar seguro de vida"", el sistema muestra un modal que incluye Titulo ""Endosar seguro de vida"" , texto informativo sobre endosar el seguro y los botones Cerrar y Entendido. Dado que selecciono cualquiera de estas opciones, el sistema cierra el modal mostrando la vista anterior. 
+ - Dado que visualizo la lista de modalidades de seguro, cuando selecciono una tarjeta (por ejemplo, “Desgravamen Porcentual”), El sistema marca el radio button de esa tarjeta como activo resaltando visualmente la tarjeta seleccionada (borde/color de fondo). 
+ - Dado que cambio la selección a otra modalidad (por ejemplo, de “Desgravamen porcentual” a “Desgravamen Devolución”) El sistema aplica la misma lógica: Nueva tarjeta seleccionada y resaltada.
+ - Dado que selecciono una modalidad, el sistema activa el botón Continuar que al ser seleccionado, el usuario avanza en el flujo y muestra la vista ""Escoge tu plan de pago y donde recibir tu dinero""
+
+Selección de plan de pago y cuenta de desembolso:
+ - Dado que el usuario selecciona un seguro y la opción Continuar, el sistema muestra la Vista ""Escoge tu plan de pago y donde recibir tu dinero"" que incluye campo Fecha de primer vencimiento, lista desplegable Cuenta de desembolso, sección informativa de que el día que se elija también será la fecha de vencimiento de la cuota cada mes, botón Continuar y volver(<-) que al seleccionar esta opción, el sistema muestra la vista anterior. 
+ - Dado que selecciono el campo “Fecha de primer pago” o el ícono de calendario, el sistema muestra un componente de calendario mediante un modal que incluye Mes y año actuales, en la parte superior (ejemplo: “Ene 2026”), Los días no válidos (por ejemplo, fechas en el pasado o fuera del rango permitido) se muestran deshabilitados y no son seleccionables.
+ - Dado que visualizo el calendario, cuando selecciono un día válido, el sistema resalta visualmente el día elegido (por ejemplo, con un círculo de color o fondo distinto). El sistema actualiza el campo “Fecha de primer pago” con la fecha seleccionada en formato DD/MM/AAAA (ejemplo: 23/01/2026). El sistema cierra el calendario.
+ - Dado que selecciono la opción Cuenta de desembolso, el sistema despliega una lista de opciones asociada a la cuenta del usuario. 
+ - Dado que ingreso una fecha, selecciono la cuenta de desembolso y selecciono el botón Continuar, el sistema muestra la vista ""Confirma tu crédito"".
+
+Confirmación de nuevo crédito:
+ - Dado que finalizo con el registro de la fecha de primer vencimiento y cuenta de desembolso, el sistema muestra la vista ""Confirma tu crédito"" que incluye Detalle de tu crédito actualizado: Monto solicitado, Tipo de operación, TEA, Plazo, Cuenta para desembolso enmascarado, Modalidad de Seguro adquirido, Nuevo monto total a pagar. 
+Detalle de tu cuota actualizada: Monto de cuota mensual, Vencimiento de la cuota mensual, Sección informativa ""Los montos mostrados son aproximados y pueden varias al momento de emitir los documentos contractuales"", Aviso: Te enviaremos todos los documentos contractuales a tu correo electrónico, sección para aceptar los acuerdos del contrato y el botón Confirmar inicialmente en gris hasta que los términos y condiciones sean aceptado. 
+ -  para la gestión de los términos y condiciones del contrato de cuenta Revisar |HU0039 - Términos y condiciones del contrato de cuenta de ahorro simple|. Lo que varia es el contenido legal del producto.
+ - Una vez aceptado los términos y condiciones, el sistema activa el botón Confirmar. 
+ - Dado que selecciono el botón Confirmar, el sistema inicializa el proceso de biometría. 
+
+Validación biométrica:
+ - Para la validación de biometría se realiza la validación de si el usuario anteriormente aceptó los tratamientos de datos biométricos. en caso el usuario no aceptó los tratamientos de datos, el usuario debe de pasar por los siguientes procesos: revisar la siguientes Historias de usuario. [HU008 - Preparación para la captura de documento de identidad y biometría facial], [HU009 - Cliente Sin clave > Almacenamiento de datos biométricos.], [HU0011 - Cliente Sin clave > captura de documento de identidad.] y [HU0011 - Cliente Sin clave > captura de biometría facial.].
+ - Si el usuario previamente aceptó los tratamientos de datos biométricos, el usuario debe pasar por los siguientes procesos: Revisar [HU0011 - Cliente Sin clave > captura de biometría facial.].
+
+Confirmación final:
+ - Dado que finalizo con el proceso de validación de biometría, el sistema muestra la vista de confirmación final y superpuesta el modal ""Reduce tu tasa adquiriendo un Seguro Vida Plus desde S/[Monto]"" que incluye Quiero un seguro y el botón Cerrar. 
+ - La vista de confirmación final incluye “¡Felicidades, [Nombre]!”, El subtítulo “Pronto recibirás tu crédito”, Sección Oferta exclusiva que contempla una tarjeta con ilustración, Etiqueta ""Oferta exclusiva"", descripción ""Reduce tu tasa con un Seguro Vida Plus desde  S/[Monto]"" incluido la opción Quiero un seguro, Sección informativa ""Te enviaremos todos los documentos contractuales a tu correo electrónico"", texto: ""¿Tienes dudas?"" y “Comunícate con nosotros a través de:"" tarjetas con canales de contacto, que incluyen al menos: Un ejecutivo de banca (nombre y número de teléfono), una dirección de oficina y un número para contactarse con algún asesor. Finalmente el botón ""Cerrar"" y ""Volver al inicio"" que al ser seleccionada cualquiera de estas opciones, el sistema redirige al home. 
+
+Quiero un seguro:
+ - Dado que selecciono la opción Quiero un seguro, el sistema redirige al flujo para poder adquirir un seguro. Revisar [HU - Solicitud de Seguros > Seguro de desgravamen],  - El sistema mostrarà el crèdito pre aproba de un cliente en la secciòn Para ti, Para mostrar el crèdito debe exitir un estado identificador proporcionado por COBIS.  
+ - La elecciòn de un seguro de vida o un seguro desgravamen se considera opcional. 
+ - El cliente puede elegir desde un monto mínimo hasta el techo preaprobado. Esta flexibilidad tiene implicancias en el motor de cálculo porque cada combinación de monto y plazo genera una cuota diferente que debe calcularse correctamente en tiempo real sin errores de redondeo ni de aplicación de tasa.
+ - Cada celda de la tabla representa el resultado de aplicar la fórmula de cuota francesa: C = S × i × (1+i)^n / ((1+i)^n - 1), donde C es la cuota, S es el saldo a financiar, i es la tasa mensual equivalente y n es el número de cuotas. El càlculo la realiza COBIS en caso no lo contemple se realizarà en la BD de la app.
+ - En caso el usuario inicia el proceso de solicitud y desea salir del proceso, el sistema deshace todo el proceso y el usuario tendrà que iniciar todo el proceso de cero. 
+ - Los datos parciales de la personalización no deben generar ningún registro ni compromiso en el core bancario hasta que el cliente confirme en el paso final con la validación de identidad.
+ - Una vez finaliza el proceso de la ocntrataciòn del crèdito pre aprobado, el sistema debe permitir realizar el desembolso de manera inmediata. A cargo de COBIS. 
+ - En caso exista interrupción por falta de conexión y realizo algún evento de click o interacción con la app, el sistema debe mostrar un modal con el mensaje de error  interrumpiendo el proceso, mensaje de error: ""No estás conectado a internet conéctate a una red y vuelve a intentarlo"" y el botón Entendido. Al ser seleccionada esta opción el sistema cierra el modal  y redirige al Login. 
+ - Trazabilidad: El sistema captura las interacciones que tendrá el usuario para determinar las actividades frecuentes del usuario. "
+"Productos, Solicitud de Seguros > Seguro de vida, , HU047 - Seguro de vida , Cliente activo , Como cliente de SURGIR, quiero personalizar las coberturas de mi Seguro Vida Plus seleccionando los beneficios adicionales que me interesan, para adaptar el seguro a mis necesidades reales y conocer el costo mensual resultante., Solicitud de seguro de vida plus:
+ - Dado que me encuentro en la vista de confirmación de crédito preaprobado y selecciono la opción ""Quiero un seguro"" que se muestra un modal superpuesta a la vista de confirmación o desde una tarjeta que se encuentra en la vista de confirmación de crédito. El sistema muestra la vista ""Seguro Vida Plus"" que incluye Título  “Elige tu Seguro de vida y reduce la tasa de tu crédito”, Sección Planes: con la lista de planes disponibles, por ejemplo:
+“Seguro Vida 1 Plus”, “Seguro Vida 2 Plus” y “Seguro Vida 3 Plus”.
+Para cada plan se muestra: Nombre del plan,
+Etiqueta “Costo mensual” y el monto correspondiente (ejemplo “S/ 22.20”).
+Estado de selección mediante radio button y tarjeta resaltada.
+En la parte inferior de la lista se muestra el resumen del crédito: Tasa de interés (TEA), Cuota mensual, Total aproximado a pagar. Cada uno con un tooltip incluido que al ser seleccionado muestra un modal informativo con la opción Cerrar que al ser seleccionado oculta el modal. 
+Botón principal “Continuar” en color rojo corporativo alineado con el diseño y 
+Botón de retroceso que al ser seleccionado el sistema muestra la vista de confirmación de crédito. 
+
+selección de plan:
+ - Dado que selecciono en un plan, el sistema marca visualmente el plan seleccionado (resaltado de tarjeta y radio button). 
+Se actualizan dinámicamente los valores de:
+Tasa de interés (TEA), Cuota mensual y
+Total aproximado a pagar.
+Solo puede haber un plan seleccionado a la vez.
+
+Ver comparación de planes:
+En la parte superior derecha de la sección “Planes” el sistema muestra el enlace “Ver comparación”.
+ - Dado que selecciono “Ver comparación”, el sistema presenta un modal que incluye 
+Título: “Planes de Seguro Vida Plus”.
+carrusel para cada plan disponible (ejemplo: “Vida 1 Plus”, “Vida 2 Plus”, “Vida 3 Plus”).
+Para cada plan se muestra: Nombre del plan,
+Costo mensual, Texto descriptivo de beneficios (según definición de negocio) y
+Botón de cierre (X) en la esquina superior del modal.
+Al cerrar el modal, el usuario regresa a la pantalla de selección manteniendo el plan previamente seleccionado en caso el usuario haya seleccionado un Seguro.
+
+Activación del botón Continuar
+ - Si existe al menos un plan seleccionado, el botón “Continuar” se muestra habilitado (color rojo). Si, no existe un plan seleccionado, el botón “Continuar” se muestra deshabilitado (gris) y no es clickeable.
+
+Navegación al siguiente paso:
+ - Dado que selecciono un plan y el botón “Continuar”, el sistema guarda el plan elegido y los datos asociados (por ejemplo, código de plan, costo mensual, etc), El sistema me lleva a la pantalla para poder registrar a los beneficiarios del seguro.
+
+Registro de beneficiarios del Seguro Vida Plus: 
+ - Dado que ya seleccioné un plan de Seguro Vida Plus, el sistema muestra la vista para registrar a los beneficiarios que incluye Título principal: “Registra a los beneficiarios para tu seguro de vida”.
+Tarjeta de resumen del plan contratado con 
+Icono del seguro / corazón, Texto: “Plan contratado: [Nombre del seguro]"", enlace o botón “Conocer más” que abre el modal informativo de beneficios del plan (misma lógica que Ver comparación de planes).
+Sección “Beneficiarios” con texto:
+“Puedes registrar hasta 3 personas.”
+Botón principal de acción: “Agregar beneficiario” (estado inicial activo mientras no se supere el máximo).
+Botón de retroceso, que al ser seleccionado muestra la vista anterior ""Confirmación de crédito""
+
+Lista de beneficiarios:
+ - Inicialmente vacía, A medida que agrego beneficiarios, el sistema lista cada registro (nombre del seguro, nombre completo, porcentaje de cobertura, ícono para edición y el icono para eliminación).
+
+Botón “Continuar” en la parte inferior: Inicialmente deshabilitado (gris) mientras no haya al menos un beneficiario registrado.
+
+Agregar beneficiario:
+ - Dado que selecciono el botón “Agregar beneficiario”, el sistema muestra un modal de tipo “bottom sheet” o pantalla superpuesta con Título: “Agregar beneficiario”, Icono o botón de cierre (X) en la parte superior derecha que al ser seleccionado el sistema cierra el modal mostrando la vista anterior. 
+Campo “Documento de identidad” por defecto DNI, seleccionado por defecto y sin posibilidad a cambiar a otro tipo de documento. 
+Campo para N° de documento (numérico y obligatorio).
+Campo “Primer nombre” (alfabético y obligatorio).
+Campo “Segundo nombre (alfabético y Opcional)”.
+Campo “Apellido paterno” (alfabético y obligatorio).
+Campo “Apellido materno” (alfabético y obligatorio).
+Campo “Fecha de nacimiento” (Placeholder: “DD/MM/AAAA” y obligatorio)
+Campo ""Género"" (Radio button: ""Femenino y Masculino"" obligatorio)
+Campo ""Teléfono celular"" (código postal solo de Perú, campo número de celular numérico de 9 dígitos y obligatorio) 
+Lista desplegable ""parentesco"" (Selección obligatorio y Placeholder: “Seleccionar una”. los valores que contempla la lista desplegable son los siguientes: )
+Campo ""Porcentaje del seguro"" (Selección obligatorio y Placeholder: “100%” incluye el botón - y + que decrementa e incrementa el pocentaje ingresado, inicialmente el botón - en gris hasta que el usuario ingrese un pocentaje. El máximo no debe superar el 100%)
+Botón principal “Agregar” al final del formulario. Inicialmente en gris hasta que se ingrese los datos obligatorios. 
+
+Comportamiento de campos y validaciones básicas:
+Todos los campos son obligatorios, en caso no sea obligatorio se indican de forma visual que es opcional. 
+ * Documento de identidad:
+Formato según tipo de documento (DNI)
+DNI: 8 dígitos numéricos.
+ * Nombres y apellidos:
+Solo letras y espacios; longitud mínima y máxima parametrizable mediante script.
+ * Fecha de nacimiento:
+No debe permitir fechas futuras.
+
+Al seleccionar un campo dentro del formulario el sistema debe mostrar el teclado ya se solo números o solo letras dependiendo de que campo seleccione el usuario. 
+
+Registro de beneficiario:
+ - Dado que ingresé todos los campos obligatorios de manera correcta, el botón “Agregar” se habilita (color corporativo). Al seleccionarlo el sistema valida nuevamente la información, si todo es correcto cierra el modal y Agrega el beneficiario a la lista de la pantalla principal, mostrando al menos el Nombre completo. Habilita el botón “Continuar” en la pantalla principal cuando exista al menos un beneficiario registrado.
+
+Límite de beneficiarios:
+ - Si ya se registraron 3 beneficiarios, el botón “Agregar beneficiario” se oculta y muestra el mensaje informativo ""Asignaste el 100% de tu cobertura"". 
+
+Edición / eliminación de beneficiarios:
+ - Dado que cada beneficiario de la lista tiene iconos para Editar la información del beneficiario y Eliminar al beneficiario.
+Editar: Dado que selecciono el icono de edición, el sistema abre el mismo modal con los datos precargados.
+Eliminar: Dado que selecciono la opción Eliminar, el sistema muestra un modal que incluye el mensaje ""¿Estás seguro de eliminar al beneficiario [Nombre del beneficiario]?"" y el botón Eliminar y Cancelar que al ser seleccionada esta opción el sistema cierra el modal sin realizar cambios. Dado que selecciono el botón ""Aceptar"", el sistema elimina el beneficiario seleccionado y se actualiza el conteo. En caso pasa de 1 a 0 beneficiarios, el botón “Continuar” se deshabilita nuevamente.
+
+Navegación y continuación del flujo:
+ - Dado que el usuario ingresa los datos requeridos y selecciona el botón Continuar, el sistema valida que el porcentaje de participación de los beneficiarios sume el 100%. Si completa el 100%, el sistema continúa con el flujo. En caso de no llegar al 100%, el sistema muestra un modal con el siguiente mensaje: ""Revisa el porcentaje de beneficio asignado a los beneficiarios, debe sumar el 100%"", incluido el botón Aceptar que, al ser seleccionado, cierra el modal.,  - El Seguro Vida Plus es un producto adicional y opcional.
+ - El seguro de vidaestarà asociado a los crèditos preaprobados que el usuario puede solicitar.
+ - El cliente podrà adquirir como màximo 3 seguros de vida plus. 
+ - Una vez agregue a un beneficiario, el sistema debe permitir modificar sus datos o eliminar al beneficiario.
+ - El mecanismo de reducción de tasa debe estar completamente definido y parametrizado: porcentaje de reducción por contratar el Vida Plus base, porcentaje adicional por cada beneficio extra seleccionado si aplica, tasa mínima a la que puede llegar el cliente independientemente de cuántos beneficios seleccione, y si la reducción aplica desde la primera cuota o desde un período posterior.
+ - El mecanismo de reducción de tasa o el porcentaje de reducción por contratar el seguro Vida Plus base lo debe proporcionar COBIS.  
+ - Esta reducción debe ser permanente durante toda la vida del crédito y no puede revocarse si el cliente mantiene el seguro activo.
+ -  ¿la reducción aplica desde la primera cuota o desde un período posterior?
+ - Si el cliente cancela el Seguro Vida Plus durante la vigencia del crédito, la tasa de interés debe volver a la tasa original pactada, Proporcionada por COBIS. Asimismo, debe estar claramente explicado en los términos y condiciones antes de la contratación. Este mecanismo debe estar validado por el área Legal de SURGIR para asegurar que cumple con la normativa SBS de transparencia.
+ - Antes de que el cliente confirme la contratación del Seguro Vida Plus, el sistema debe mostrar el resumen de seguro que va a contratar que incluyan a los beneficiarios.
+ -  En caso exista interrupción por falta de conexión y realizo algún evento de click o interacción con la app, el sistema debe mostrar un modal con el mensaje de error  interrumpiendo el proceso, mensaje de error: ""No estás conectado a internet conéctate a una red y vuelve a intentarlo"" y el botón Entendido. Al ser seleccionada esta opción el sistema cierra el modal  y redirige al Login. 
+ - Trazabilidad: El sistema captura las interacciones que tendrá el usuario para determinar las actividades frecuentes del usuario. "
+"Productos, Solicitud de refinanciamiento , , HU048 - Solicitar refinanciamiento, Cliente activo , Como cliente de SURGIR, quiero poder refinanciar mi crédito vigente desde la app móvil, visualizando mi deuda actual, eligiendo una nueva cuota mensual y confirmando el proceso de forma segura, para gestionar mi pago de forma conveniente sin acudir a una agencia., Visualización de oferta de refinanciamiento de crédito:
+ - Dado que accedo a la vista ""Mi crédito"" y el sistema detecta que tengo una oferta de refinanciamiento de mi crédito, el sistema muestra una tarjeta que incluye ilustración, testo ""Alivia tu deuda hoy mismo con un refinanciamiento"" incluido el icono de navegabilidad "">"".
+ - Dado que selecciono en la tarjeta de refinanciamiento, el sistema muestra la vista ""Mi refinanciamiento"" que incluye ilustración o imagen representativa del producto, Título principal ""Refinancia tu deuda"", Monto de la deuda actual resaltado (ejemplo: ""S/ 10,865.00""),
+Texto descriptivo con la propuesta de valor del refinanciamiento, Botón principal ""¡Me interesa!"" en color rojo corporativo, Botón de retroceso (←) en la parte superior izquierda que al ser seleccionado regresa a la vista anterior.
+ - Dado que selecciono el botón ""¡Me interesa!"", el sistema navega a la siguiente pantalla del flujo (selección de nueva cuota mensual).
+
+Selección de nueva cuota mensual
+ - Dado que continué desde la pantalla ""¡Me interesa!"", el sistema muestra la vista ""Mi refinanciamiento"" que incluye 
+Indicador de cuota mensual actual: ""Tu cuota mensual actual"" con el monto vigente resaltado (ejemplo: ""S/ 500.25""), Pregunta ""¿Cuánto puedes pagar mensualmente?"", Opciones de cuota presentadas como botones o tarjetas seleccionables con al menos 3 alternativas de monto (ejemplo: ""S/ 240.34"", ""S/ 400.34"", ""S/ 740.34""), Estado de selección visual: la opción elegida se resalta diferenciándola de las no seleccionadas. Solo puede existir una opción seleccionada a la vez. Sección nueva deuda refinanciada que incluye: Plazo, Tasa de interés(TEA), Ttotal aproximado a pagar, sección informativa ""El monto mostrado es un aproximado y puede varias al momento de emitir el cronograma de pagos.""
+Botón principal ""Continuar"" en color rojo corporativo. Botón de retroceso (←) que regresa a la vista de oferta de refinanciamiento.
+ - Dado que no existe ninguna opción de cuota seleccionada, el botón ""Continuar"" se muestra deshabilitado (gris) y no es clickeable. Si existe al menos una opción seleccionada, el botón Continuar"" se habilita (rojo corporativo).
+ - Dado que selecciono una opción de cuota y los datos de la sección Nueva deuda refinanciada varia de acuerdo al valor seleccionado (Cálculo proveniente de COBIS).
+ - Dado que selecciono una opción de cuota y selecciono la opción ""Continuar"", el sistema guarda la cuota elegida y navega a la vista para Escoger el día de pago
+
+Selección de fecha del primer pago:
+ - Dado que selecciono una opción de cuota y selecciono la opción ""Continuar"", el sistema muestra la vista ""Mi refinanciamiento"" con el título ""Escoge tu día de pago"" que incluye:
+Etiqueta ""Fecha del primer pago"".
+Campo de fecha con placeholder ""DD/MM/AAAA"" y un ícono de calendario en el extremo derecho del campo.
+Texto informativo: ""El día que elijas será también la fecha de vencimiento de tu cuota cada mes.""
+Botón principal ""Continuar"" en color rojo corporativo, inicialmente deshabilitado (gris) mientras no se seleccione una fecha.
+Botón de retroceso (←) que regresa a la vista anterior.
+Botón de cierre (X) que al ser seleccionado el sistema muestra un modal que incluye ilustración, mensaje ""¿Estás seguro de querer salir? si sales, perderás todo tu progreso"" incluido el botón ""continuar"", ""cerrar(x)"" que al ser seleccionado cualquiera de estas opciones, el sistema cierra el modal mostrando la vista anterior y el botón ""si, quiero salir"" que al ser seleccionado, el sistema cierra el modal interrumpiendo el proceso y redirigiendo al Home. 
+ - Dado que selecciono el campo de fecha o el ícono de calendario, el sistema despliega un selector de tipo calendario que incluye: Navegación por mes con botones (< >) para avanzar o retroceder entre meses. Selector de mes (desplegable con el nombre del mes, ejemplo: ""Mar""). Selector de año (desplegable con el año, ejemplo: ""2026""). Grilla de días del mes con encabezados de días de la semana (M, T, W, T, F, S, S). El día actual resaltado visualmente de forma diferenciada.
+Solo se permiten seleccionar fechas futuras; las fechas pasadas se muestran deshabilitadas.
+ - Dado que selecciono un día válido en el calendario, el sistema cierra el selector de calendario, registra la fecha elegida y la muestra en el campo con formato ""DD/MM/AAAA"" (ejemplo: ""12/05/2026""). El botón ""Continuar"" se habilita en color rojo corporativo.
+ - Dado que selecciono el botón ""Continuar"" con una fecha seleccionada, el sistema guarda la fecha elegida como fecha del primer pago y fecha de vencimiento mensual, y navega a la vista de resumen de la nueva cuota mensual.
+
+Resumen y confirmación de la nueva cuota mensual:
+ - Dado que continué desde la vista de selección de fecha del primer pago, el sistema muestra la vista ""Mi refinanciamiento"" con el título ""Tu nueva cuota mensual"" que incluye: Etiqueta ""Tu nueva cuota mensual"" con el monto seleccionado resaltado en tamaño grande (ejemplo: ""S/ 740.34""). Sección ""Resumen sobre tu refinanciamiento"" con los siguientes campos informativos: 
+Producto: nombre del crédito refinanciado (ejemplo: ""Crédito Construyendo Sueños"").
+Total aproximado a pagar (ejemplo: ""S/ 17,200.00""). Cantidad de cuotas (ejemplo: ""18 cuotas""). Cuota mensual anterior (ejemplo: ""S/ 500.00""). TEA: tasa efectiva anual aplicada (ejemplo: ""81.3%""). Botón principal ""Continuar"" en color rojo corporativo, habilitado.
+Botón de retroceso (←) que regresa a la vista de selección de fecha del primer pago.
+Botón de cierre (X) que al ser seleccionado cualquiera de estas opciones, el sistema cierra el modal mostrando la vista anterior y el botón ""si, quiero salir"" que al ser seleccionado, el sistema cierra el modal interrumpiendo el proceso y redirigiendo al Home.
+ - Dado que selecciono el botón ""Continuar"", el sistema inicia el proceso de validación del refinanciamiento y muestra la pantalla de carga (loader) que incluye Fondo neutro de pantalla completa que bloquea la interacción con otros elementos. Indicador de carga animado (spinner o animación equivalente) centrado en la pantalla. Texto informativo ""Validando..."" debajo del indicador de carga. El cliente no puede interactuar con ningún otro elemento mientras el proceso está en curso.
+ - Dado que el proceso de validación finaliza exitosamente, el sistema oculta la pantalla de carga y navega automáticamente a la vista de confirmación de refinanciamiento. En caso el proceso de validación falla, el sistema oculta la pantalla de carga y muestra un mensaje de error con las opciones de reintento o cancelación PENDIENTE DE DISEÑO.
+
+Confirmación de refinanciamiento realizado:
+ - Dado que el sistema validó exitosamente el refinanciamiento, el sistema envia un push notificación ""¡Refinanciamiento creado! Tu operación será revisada en poco tiempo"", envia un mailing con los datos del nuevo refinanciamiento y muestra la vista ""Mi refinanciamiento"" con el mensaje de éxito que incluye: Logo o marca ""SURGIR"" en la parte superior. Ilustración representativa de éxito. Título de confirmación: ""¡Refinanciamiento realizado!"" con énfasis visual de color rojo en la palabra ""realizado"". 
+Sección ""Todo sobre tu refinanciamiento"" con los siguientes datos del nuevo esquema: 
+Producto: nombre del crédito refinanciado (ejemplo: ""Crédito Construyendo Sueños"").
+Total aproximado a pagar (ejemplo: ""S/ 17,200.00""). Cantidad de cuotas (ejemplo: ""18 cuotas""). Nueva cuota mensual (ejemplo: ""S/ 740.34""). Cuota mensual anterior (ejemplo: ""S/ 500.00""). TCA (ejemplo: ""81.3%""). Primer vencimiento (ejemplo: ""23 de febrero 2026""). Fecha de vencimiento (ejemplo: ""[número de día] de cada mes""). Texto informativo ""El monto mostrado es un aproximado y puede variar al momento de emitir el cronograma de pago."", icono de correo y texto ""Toda la documentación se enviará a tu correo:*******nqui@*****.com"" correo parcialmente enmascarado. Título ""¿Tienes dudas?"" y “Comunícate con nosotros a través de:"" tarjetas con canales de contacto, que incluyen al menos: una dirección de oficina y un número para contactarse con algún asesor. Finalmente el botón ""Volver al inicio"" que al ser seleccionada, el sistema redirige al home. Botón Compartir que al ser seleccionado, el sistema habilita las opciones para poder compartir en formato PNG. Botón de cierre (X) en la parte superior derecha, que al ser seleccionado cierra la vista de confirmación mostrando la pantalla ""Mi crédito"" en la cual oculta la tarjeta de refinanciamiento y reflejando el nuevo esquema de refinanciamiento.
+
+Actualización de datos del crédito tras refinanciamiento
+ - Dado que el refinanciamiento fue procesado exitosamente y regreso a la vista ""Mi Crédito"", el sistema muestra los datos actualizados.
+ - Dado que selecciono ""Descargar cronograma"" tras el refinanciamiento, el sistema genera y descarga el nuevo calendario de pagos que refleja el esquema refinanciado (nueva cuota, nuevo plazo y nueva fecha de vencimiento mensual).,  - El cliente debe tener al menos un crédito vigente y activo en el sistema. No aplica para créditos en etapa de castigo, en cobranza judicial o con calificación CPP (Con Problemas Potenciales), Deficiente, Dudoso o Pérdida según la clasificación de la SBS. Solo aplica para créditos clasificados como Normal o con atraso máximo de 8 días, ya que a partir del día 9 la SBS obliga a reclasificar al cliente a CPP. 
+ - El crédito debe haber cumplido un mínimo de cuotas pagadas (generalmente entre 3 y 6 cuotas según política interna) para demostrar comportamiento de pago. No debe tener otro refinanciamiento activo vigente sobre el mismo crédito. 
+ - En caso de crédito grupal (solidario), todos los integrantes del grupo deben calificar para que proceda el refinanciamiento.
+ - Si el cliente tiene más de un crédito, el refinanciamiento aplica crédito por crédito, no de forma consolidada 
+ - El plazo máximo del nuevo crédito refinanciado no puede exceder el plazo máximo permitido por tipo de producto (ej. crédito MYPE: 36 meses, crédito de consumo: 24 meses). El nuevo plazo siempre será mayor al plazo residual del crédito original, ya que el objetivo es aliviar la carga mensual del cliente. La tasa de interés del crédito refinanciado puede ser igual o mayor a la original, nunca menor, salvo que exista una campaña aprobada por el área comercial. La operación de refinanciamiento genera un nuevo contrato y un nuevo número de crédito en el core bancario; el crédito original se cancela contablemente.
+ - El nuevo capital a financiar está compuesto por el saldo de capital pendiente más los intereses devengados no pagados más las comisiones o cargos en mora si aplica, menos cualquier pago parcial realizado ese día. No se pueden capitalizar intereses sobre intereses (anatocismo), lo cual está prohibido por la SBS.
+ - El sistema debe calcular la cuota mínima y la cuota máxima permitida en función del saldo a refinanciar, la tasa vigente y el plazo máximo del producto.
+ - La TEA (Tasa Efectiva Anual) y la TCEA (Tasa de Costo Efectivo Anual) deben mostrarse obligatoriamente en la pantalla de resumen según lo exige la SBS.
+ - El seguro de desgravamen debe recalcularse sobre el nuevo saldo y nuevo plazo y debe incluirse en la cuota mostrada al cliente.
+ - Antes de mostrar la pantalla de resumen, el sistema debe consultar en tiempo real al core bancario para verificar que no hubo ningún cambio en el estado del crédito desde que el cliente inició el flujo (ej. un pago registrado en paralelo por otro canal). Si durante el flujo se detecta un pago registrado que cambia el saldo, se debe recalcular y notificar al cliente antes de confirmar. 
+ - La lògica o las condiciones que se plantean lineas arribas debe proporcionarlo las APIs del core bancario. 
+ - En caso exista interrupción por falta de conexión y realizo algún evento de click o interacción con la app, el sistema debe mostrar un modal con el mensaje de error  interrumpiendo el proceso, mensaje de error: ""No estás conectado a internet conéctate a una red y vuelve a intentarlo"" y el botón Entendido. Al ser seleccionada esta opción el sistema cierra el modal  y redirige al Login. 
+ - Trazabilidad: El sistema captura las interacciones que tendrá el usuario para determinar las actividades frecuentes del usuario. "
+"Productos, Solicitud de cancelación total , , HU049 - Cancelar credito , Cliente activo , Como cliente de SURGIR, quiero visualizar la pantalla principal del módulo de cancelación de crédito, para conocer el monto total que debo pagar para liquidar mi deuda completamente., Acceso al menú de opciones del crédito:
+ - Dado que me encuentro en la vista ""Mi Crédito"" y selecciono el menú de opciones, el sistema muestra un modal superpuesto con el título ""¿Qué deseas realizar?"" que incluye:
+Opción ""Opciones de pago"" con ícono representativo.
+Opción ""Soluciones de pago"" con ícono representativo.
+Opción ""Comunicarme con mi asesor"" con ícono representativo.
+Botón de cierre (X) en la parte superior derecha que al ser seleccionado oculta el modal y muestra la vista ""Mi Crédito"".
+ - Dado que selecciono la opción ""Opciones de pago"", el sistema cierra el modal principal y muestra un segundo modal con el título ""Opciones de pago"" que incluye:
+Opción ""Pago anticipado"" con ícono representativo.
+Opción ""Cancelación de crédito"" con ícono representativo.
+Botón de cierre (X) en la parte superior derecha que al ser seleccionado oculta el modal y muestra la vista ""Mi Crédito"".
+ - Dado que selecciono la opción ""Cancelación de crédito"" dentro del modal ""Opciones de pago"", el sistema cierra el modal y navega a la vista ""Cancela tu crédito"" y el modal superpuesta ""Tu comentario nos ayuda a mejorar"".
+
+Registro del motivo de cancelación del crédito: 
+ - Dado que ingresé al flujo de cancelación de crédito, el sistema muestra un modal con el título ""Tu comentario nos ayuda a mejorar"" que incluye:
+Ilustración representativa en la parte superior del modal.
+Subtítulo: ""Selecciona un motivo"".
+Lista de opciones de motivo con radio buttons (selección única), con las siguientes alternativas:
+ * Ya no necesito el crédito.
+ * Dificultades económicas.
+ * Tasas o comisiones.
+ * Proceso o experiencia.
+ * Encontré mejores condiciones en otra entidad.
+ * Otro motivo.
+Botón principal ""Continuar"" inicialmente deshabilitado (gris) mientras no se seleccione un motivo.
+Botón ""Regresar"" que al ser seleccionado cierra el modal y muestra la vista ""Cancela tu crédito"".
+Botón de cierre (X) en la parte superior derecha que al ser seleccionada muestra la vista ""Cancela tu crédito"".   
+ - Dado que selecciono una opción de motivo, el sistema marca visualmente el radio button de la opción elegida. Solo puede existir una opción seleccionada a la vez. El botón ""Continuar"" se habilita en color rojo corporativo.
+
+Ingreso de otro motivo de cancelación:
+ - Dado que selecciono ""Otro motivo"" el sistema muestra el modal ""¿Cuál es el motivo de tu cancelación?"" que incluye:
+Ilustración representativa en la parte superior.
+Etiqueta: ""Motivo de la cancelación (opcional)"" con contador de caracteres (ejemplo: ""0/50"").
+Campo de texto libre con placeholder ""Escribe aquí el motivo"", con un límite máximo de 50 caracteres.
+Al seleccionar el campo de texto, el sistema despliega el teclado del dispositivo.
+Botón principal ""Continuar"" en color rojo corporativo, habilitado por defecto (el comentario es opcional).
+Botón ""Regresar"" que regresa al modal de selección de motivo.
+Botón de cierre (X) en la parte superior derecha. Que al ser seleccionado cierra el modal y regresa al modal de selección de motivo.
+ - Dado que ingreso texto en el campo de comentario, el contador de caracteres se actualiza en tiempo real (ejemplo: ""28/50""). El sistema no permite ingresar más de 50 caracteres.
+ - Dado que selecciono ""Continuar"" (con o sin comentario ingresado), el sistema registra el comentario y muestra un modal con:
+Ilustración representativa en la parte superior.
+Título: ""Gracias por ayudarnos a mejorar"".
+Texto informativo: ""Hemos registrado tu comentario. Continúa con la cancelación de tu crédito.""
+Botón ""Continuar"" en color rojo corporativo que al ser seleccionado navega a la vista de selección de cuenta de origen para realizar el pago del crédito.
+
+Selección de cuenta de origen para cancelación del crédito:
+ - Dado que cerré el modal ""Tu comentario nos ayuda a mejorar"" o finalicé con el ingreso del motivo de cancelación, el sistema muestra la Vista ""Cancela tu crédito"". En caso cerré el modal ""Tu comentario nos ayuda a mejorar"" la vista ""Cancela tu crédito"" incluye:
+Título de la sección: ""Selecciona la cuenta desde donde quieres pagar"".
+Campo ""Monto a pagar"" con el saldo total pendiente de cancelación resaltado (ejemplo: ""S/ 1,626.50""). Lista desplegable ""Origen"" con los datos ""[Tipo de cuenta][código de cuenta] - S/[Monto]"". Seleccionada una cuenta por defecto con opción a cambiar por otra cuenta, en caso el usuario tenga más de una cuenta el sistema muestra la cuenta que tiene el mayor saldo. Banner o enlace ""Cuéntanos el motivo de tu cancelación"" con ícono y flecha de navegación (acceso al flujo de motivo de cancelación en caso no se haya completado previamente).
+Botón principal ""Continuar"" en color rojo corporativo, habilitado.
+Botón de retroceso (←) que regresa a la vista anterior.
+Botón de cierre (X) en la parte superior derecha, que al ser seleccionada, el sistema muestra el modal ""¿Estás seguro de querer salir? Si sales, perderás todo tu progreso"" incluido las opciones ""Continuar"", cerrar (X) que al ser seleccionado el sistema cierra el modal mostrando la vista anterior y el botón ""Si, quiero salir"" que al ser seleccionado el sistema cierra el modal y redirige al home.
+ - En caso el usuario haya finalizado con el registro del motivo de cancelación de crédito, el sistema oculta el Banner o enlace ""Cuéntanos el motivo de tu cancelación"" de la vista ""Cancela tu crédito"".
+ - Dado que selecciono el campo desplegable ""Origen"", el sistema muestra un modal o bottom sheet con la lista de cuentas disponibles del cliente que incluye para cada cuenta:
+Nombre y número de cuenta (ejemplo: ""Cuenta de Ahorro 4567 - Soles"").
+Saldo disponible (ejemplo: ""S/ 120.00"").
+Ícono de selección (check) en la cuenta actualmente seleccionada.
+ - Dado que selecciono una cuenta de la lista, el sistema cierra el selector, actualiza el campo ""Origen"" con la cuenta elegida y mantiene habilitado el botón ""Continuar"".
+ - Dado que selecciono ""Continuar"" con una cuenta de origen seleccionada, el sistema navega a la vista de confirmación y detalle de la operación de cancelación.
+
+Confirmación y detalle de la operación de cancelación:
+ - Dado que continué desde la selección de cuenta de origen, el sistema muestra la vista ""Cancela tu crédito"" con el detalle de la operación que incluye:
+Título: ""Estás por cancelar tu crédito"".
+Campo ""Monto a pagar"" con el monto total de cancelación resaltado (ejemplo: ""S/ 1,626.50"").
+Sección ""Descripción de la operación"" con los siguientes datos:
+Operación: tipo de operación (ejemplo: ""Cancelación de crédito"").
+Origen: cuenta de ahorro seleccionada con los últimos dígitos enmascarados (ejemplo: ""Cuenta de Ahorro Soles ** 6835"").
+Fecha de cancelación (ejemplo: ""12 de marzo de 2026"").
+Sección ""Añade detalle"" con campo de texto opcional (placeholder: ""Añadir detalle""), con contador de caracteres (ejemplo: ""0/50"").
+Botón principal ""Pagar"" en color rojo corporativo, habilitado.
+Botón de retroceso (←) que regresa a la vista de selección de cuenta de origen.
+Botón de cierre (X) en la parte superior derecha que al ser seleccionado, el sistema muestra el modal ""¿Estás seguro de querer salir? Si sales, perderás todo tu progreso"" incluido las opciones ""Continuar"", cerrar (X) que al ser seleccionado el sistema cierra el modal mostrando la vista anterior y el botón ""Si, quiero salir"" que al ser seleccionado el sistema cierra el modal y redirige al home.
+ - Dado que selecciono el botón ""Pagar"", el sistema procesa el pago de cancelación y navega a la pantalla de confirmación de crédito pagado.
+
+Confirmación de crédito cancelado exitosamente:
+ - Dado que el sistema procesó exitosamente el pago de cancelación, el sistema envía un mailing y el push notification de confirmación del pago de crédito y muestra la vista de confirmación que incluye: Logo o marca ""SURGIR"" en la parte superior.
+Ilustración representativa de éxito.
+Título de confirmación: ""¡Crédito pagado!"" con énfasis visual de color rojo en la palabra ""pagado"".
+Número de operación o referencia de la transacción (ejemplo: ""Op. N° 99997891234""). 
+Sección informativo ""En máximo 7 días hábiles te enviaremos tu carta de cancelación"". Tarjeta de crédito preaprobado en caso el usuario cuente con la oferta de este producto, esto incluye, ilustración, titulo ""¡Tienes un crédito Aprobado! S/[monto] y el botón Conoce más. 
+Título ""¿Tienes dudas?"" y “Comunícate con nosotros a través de:"" tarjetas con canales de contacto, que incluyen al menos: una dirección de oficina y un número para contactarse con algún asesor. Finalmente el botón ""Volver al inicio"" que al ser seleccionada, el sistema redirige al home. Botón de cierre (X) en la parte superior derecha y botón ""Volver al inicio"" que al ser seleccionado cualquiera de estos botones, el sistema cierra la vista de confirmación y redirige al home.,  - El monto de cancelación anticipada debe calcularse al día exacto de la consulta e incluye: saldo de capital pendiente, intereses compensatorios devengados desde la última cuota pagada hasta el día de la consulta (calculados sobre saldo insoluto con la TEA pactada), intereses moratorios si el cliente tiene días de atraso (calculados con la tasa moratoria pactada, que no puede exceder el límite establecido por el BCRP), seguro de desgravamen proporcional a los días del período actual, y cualquier comisión vigente pactada en contrato.
+ - El monto de cancelación mostrado en pantalla tiene vigencia únicamente para el día de la consulta. Si el cliente no confirma la operación el mismo día, el monto varía al día siguiente porque los intereses continúan devengando. El sistema debe mostrar este disclaimer de forma obligatoria y visible.
+ - Antes de mostrar el botón ""Pagar"", el sistema debe verificar que el cliente tiene fondos suficientes en la cuenta de débito vinculada o en el saldo de la billetera digital. Si no tiene fondos suficientes, el botón ""Pagar"" debe deshabilitarse y se muestra un mensaje indicando el déficit y sugiriendo recargar o usar otro medio de pago.
+ - El débito debe hacerse de forma atómica: se descuenta el saldo y se registra la cancelación en el core en la misma transacción. Si falla alguno de los dos pasos, se revierte todo (rollback) para evitar que se descuente el dinero sin cancelar el crédito o viceversa.
+ - El sistema debe implementar un mecanismo de idempotencia para evitar que una misma operación se procese dos veces. Esto es crítico si el cliente cierra la app durante la pantalla ""Validando pago"" y vuelve a intentar. Antes de procesar, el sistema debe verificar si ya existe una transacción en estado ""pendiente"" o ""procesada"" para ese crédito en los últimos 5 minutos. Si existe, se informa al cliente del estado de su operación anterior en lugar de generar una nueva.
+ - La cancelación anticipada genera el cierre contable del crédito: se libera el saldo de capital en cartera, se reconocen los intereses devengados como ingreso, se libera la provisión constituida si la hubiere, y se cancela la relación de garantías si el crédito las tuviera. El crédito cancelado debe reportarse a la SBS en el siguiente cierre mensual como crédito cancelado anticipadamente. El historial del crédito debe quedar disponible en el sistema para consulta del cliente y para futuros análisis de riesgo crediticio.
+ - tras la cancelación exitosa. Esto puede corresponder a: devolución de seguro de desgravamen no devengado por los meses que no se utilizarán, cashback o beneficio comercial por cancelación anticipada como estrategia de fidelización, o devolución de comisiones cobradas por adelantado. Este concepto debe definirse con precisión con el área de Productos y Legal de SURGIR, ya que tiene impacto contable y regulatorio. La devolución no debe quedar como promesa visual sin respaldo real en el sistema.
+ - No se permite cancelar digitalmente créditos con garantía hipotecaria o prendaria, ya que requieren el levantamiento físico de la garantía ante registros públicos, lo cual no puede gestionarse por canal digital. No se permite cancelar un crédito que está simultáneamente en proceso de refinanciamiento o reprogramación por otro canal. Si el crédito tiene un codeudor o aval, la cancelación debe ser validada con reglas adicionales que deben definirse con el área legal. El monto máximo de cancelación digital debe estar limitado por el monto máximo de operación permitido por el canal digital de SURGIR (límite transaccional), el cual debe estar alineado con las políticas de prevención de lavado de activos 
+ -  La lògica o las condiciones que se plantean lineas arribas debe proporcionarlo las APIs del core bancario. 
+ - Una vez finalizado la cancelación del crédito, el sistema enviará un correo y SMS de confirmación al usuario. En el mailing se detalla los datos de la cancelación del crédito.  
+ - En caso exista interrupción por falta de conexión y realizo algún evento de click o interacción con la app, el sistema debe mostrar un modal con el mensaje de error  interrumpiendo el proceso, mensaje de error: ""No estás conectado a internet conéctate a una red y vuelve a intentarlo"" y el botón Entendido. Al ser seleccionada esta opción el sistema cierra el modal  y redirige al Login. 
+ - Trazabilidad: El sistema captura las interacciones que tendrá el usuario para determinar las actividades frecuentes del usuario. "
+"Productos, Pagos Servicios, , HU050 - Pago de servicios , Cliente activo , Como cliente de SURGIR, quiero pagar mis recibos de servicios como gas, luz, agua u otros desde la app móvil, seleccionando la empresa, ingresando mi número de suministro y eligiendo uno o múltiples recibos a pagar, para realizar mis pagos de forma rápida y segura sin acudir a una agencia o punto de pago presencial., Visualización y selección de empresa para pago de servicio
+ - Dado que selecciono la opción ""Pagar servicio"" desde el home, el sistema muestra la vista ""Pagar servicios"" que incluye:
+Campo de búsqueda con placeholder ""Buscar empresa"" en la parte superior.
+Filtros de categoría en formato de chips o pestañas horizontales desplazables: ""Luz"", ""Agua"", ""Internet"", ""Telefonía"", y otras categorías disponibles.
+Lista de empresas disponibles agrupadas por categoría, mostrando para cada empresa:
+Ícono representativo de la categoría (luz, agua, internet, telefonía, gas, etc).
+Nombre de la categoría en texto pequeño (ejemplo: ""Luz"", ""Agua"", ""Internet"", etc).
+Nombre de la empresa (ejemplo: ""ENEL"", ""Sedapal"", ""Win"", ""Entel"", ""Claro"", ""Cálidda"", ""Bitel"").
+Flecha de navegación (>) al extremo derecho.
+Botón de retroceso (←) en la parte superior izquierda.
+ - Dado que selecciono una categoría en los filtros (ejemplo: ""Luz""), el sistema filtra la lista de empresas mostrando únicamente las empresas correspondientes a la categoría seleccionada. El chip de la categoría seleccionada se resalta visualmente.
+ - Dado que selecciono una empresa de la lista (ejemplo: ""Cálidda""), el sistema navega a la vista de selección del tipo de pago de la empresa seleccionada.
+
+Búsqueda de empresa por nombre
+ - Dado que me encuentro en la vista ""Pagar servicios"" y selecciono el campo ""Buscar empresa"", el sistema despliega el teclado del dispositivo y habilita el campo para ingreso de texto. La lista de empresas permanece visible con todos los resultados disponibles.
+ - Dado que ingreso caracteres en el campo de búsqueda (ejemplo: ""Cal""), el sistema filtra en tiempo real la lista de empresas mostrando únicamente las que coincidan con el texto ingresado (ejemplo: ""Cálidda""). Los filtros de categoría permanecen visibles y funcionales durante la búsqueda.
+ - Dado que el texto ingresado coincide con una o más empresas, el sistema muestra los resultados filtrados con el mismo formato de la lista principal (ícono, categoría, nombre y flecha de navegación).
+ - Dado que el texto ingresado no coincide con ninguna empresa disponible, el sistema muestra un mensaje informativo indicando que no se encontraron resultados (PENDIENTE DE DISEÑO).
+ - Dado que elimino el texto del campo de búsqueda dentro del campo, el sistema restaura la lista completa de empresas disponibles.
+ - Dado que selecciono una empresa de los resultados de búsqueda, el sistema navega a la vista de selección del tipo de pago de la empresa seleccionada.
+
+Selección del tipo de pago de la empresa
+ - Dado que seleccioné una empresa (ejemplo: ""Cálidda""), el sistema muestra la vista ""Pagar servicios"" con la sección ""Destino"" que incluye:
+Ícono de la categoría y nombre de la empresa seleccionada como destino (ejemplo: ícono de gas + ""Gas Cálidda"").
+Sección ""Selecciona el tipo de pago"" con la lista de modalidades disponibles para la empresa, mostrando para cada opción:
+Nombre del tipo de pago (ejemplo: ""Recibo de Gas Natural en soles"", ""Calidda Otros"").
+Flecha de navegación (>) en cada opción al extremo derecho.
+Botón de retroceso (←) que regresa a la lista de empresas.
+Botón de cierre (X) que cancela el flujo y regresa a la vista principal.
+ - Dado que selecciono un tipo de pago (ejemplo: ""Recibo de Gas Natural en soles""), el sistema navega a la vista de ingreso del número de cliente o suministro.
+
+Ingreso del número de cliente, código o suministro
+ - Dado que seleccioné el tipo de pago, el sistema muestra la vista ""Pagar servicios"" que incluye:
+Sección ""Destino"" con el ícono y nombre de la empresa seleccionada previamente (ejemplo: ""Gas Cálidda"").
+Etiqueta ""Ingresa N° de cliente o suministro"".
+Campo de texto numérico con placeholder ""N° de cliente o suministro"", obligatorio.
+Botón principal ""Continuar"" inicialmente deshabilitado (gris) mientras el campo esté vacío.
+Botón de retroceso (←) que regresa a la vista de selección de tipo de pago.
+Botón de cierre (X) que cancela el flujo y muestra la vista del Home.
+ - Dado que ingreso un número de cliente o suministro válido en el campo (ejemplo: ""45999541""), el sistema habilita el botón ""Continuar"" en color rojo corporativo.
+ - Dado que selecciono ""Continuar"" con el número ingresado, el sistema consulta los recibos pendientes asociados al número de cliente y muestra una pantalla de carga mientras procesa la consulta. Si la consulta es exitosa, navega a la vista de selección de recibo y cuenta de origen. Si no se encuentran recibos o el número es inválido, el sistema muestra un mensaje de error correspondiente (PENDIENTE DE DISEÑO).
+
+Selección de recibo y cuenta de origen
+ - Dado que el sistema recuperó los recibos pendientes, la vista ""Pagar servicios"" se actualiza mostrando:
+Sección ""Destino"" con el nombre de la empresa, nombre del titular y número de suministro (ejemplo: ""Gas Cálidda / Juan Herrera | 45999541"").
+Sección ""Recibos"" con la lista de recibos pendientes disponibles. Para cada recibo se muestra:
+Fecha de vencimiento (ejemplo: ""Vence el [20/01/2026]"").
+Número de recibo (ejemplo: ""N° de recibo [1000048689]"").
+Monto del recibo (ejemplo: ""S/ [361.40]"").
+Radio button para selección.
+Sección ""Origen"" con un selector desplegable de cuenta de ahorro (ejemplo: ""Cuenta ahorro 4567 - S/ 600,020.00""). Automáticamente seleccionada una cuenta(DEFINIR QUE CUENTA PREDOMINA EN CASO EL USUARIO CUENTE CON MÁS DE UNA CUENTA).
+Botón principal ""Continuar"" inicialmente deshabilitado (gris) mientras no se seleccione un recibo.
+Botón de retroceso (←) que al ser seleccionado el sistema muestra la vista anterior y el botón de cierre (X) que al ser seleccionado, el sistema muestra el modal ""¿Estás seguro de querer salir? Si sales, perderás todo tu progreso"" incluido las opciones ""Continuar"", cerrar (X) que al ser seleccionado el sistema cierra el modal mostrando la vista anterior y el botón ""Si, quiero salir"" que al ser seleccionado el sistema cierra el modal y redirige al home.
+ - Dado que selecciono un recibo de la lista, el sistema marca visualmente el radio button del recibo elegido. Solo puede seleccionarse un recibo a la vez. El botón ""Continuar"" se habilita en color rojo corporativo.
+ - Dado que selecciono el campo desplegable ""Origen"", el sistema muestra un modal o bottom sheet con la lista de cuentas disponibles del cliente que incluye para cada cuenta:
+Nombre del tipo de cuenta y número (ejemplo: ""Cuenta de ahorro Soles - 4567"").
+Saldo disponible (ejemplo: ""S/ 600,020.00"").
+Ícono de selección (check) en la cuenta actualmente activa.
+ - Dado que selecciono una cuenta de origen y un recibo, el botón ""Continuar"" se habilita. Al seleccionarlo, el sistema navega a la vista de confirmación del pago.
+
+Confirmación del pago de servicio
+ - Dado que continué desde la selección de recibo y cuenta, el sistema muestra la vista ""Pagar servicios"" con el título ""Confirma tu pago"" que incluye:
+Etiqueta ""Total"" con el monto del recibo seleccionado resaltado en tamaño grande (ejemplo: ""S/ 361.40"").
+Sección ""Descripción de la operación"" con los siguientes datos:
+Operación: tipo de operación (ejemplo: ""Pago de servicio"").
+Servicio: nombre de la empresa (ejemplo: ""Gas Cálidda"").
+Recibos: número de recibo y monto (ejemplo: ""N° 1000048689 - S/ 361.40"").
+Origen: cuenta de ahorro con los últimos dígitos enmascarados (ejemplo: ""Cuenta Ahorro Soles *** 4567"").
+Enlace o sección ""Añadir detalle"" para agregar un comentario opcional a la operación que incluye contador de los dígitos 0/250 que irá actualizandose el contador mientras el usuario ingresa textos o dígitos.
+Botón principal ""Pagar"" en color rojo corporativo, habilitado.
+Botón de retroceso (←) que regresa a la vista de selección de recibo y cuenta.
+Botón de cierre (X) en la parte superior derecha.  que al ser seleccionado, el sistema muestra el modal ""¿Estás seguro de querer salir? Si sales, perderás todo tu progreso"" incluido las opciones ""Continuar"", cerrar (X) que al ser seleccionado el sistema cierra el modal mostrando la vista anterior y el botón ""Si, quiero salir"" que al ser seleccionado el sistema cierra el modal y redirige al home.
+ - Dado que selecciono el botón ""Pagar"", el sistema inicia el proceso de validación y muestra la pantalla de carga con el texto ""Validando..."" mientras procesa la operación. Si el pago es exitoso, navega a la vista de confirmación de pago exitoso 
+. Caso contrario muestra un mensaje de error (PENDIENTE DE DISEÑO).
+
+Confirmación de pago de servicio exitoso:
+ - Dado que el sistema procesó exitosamente el pago del servicio, el sistema muestra la vista de confirmación que incluye:
+Logo o marca ""SURGIR"" en la parte superior.
+Ilustración representativa de éxito.
+Título de confirmación: ""¡Pago exitoso!"" con énfasis visual de color rojo en ""exitoso"".
+Número de operación o referencia de la transacción (ejemplo: ""Op. N° 99991851234"").
+Campo ""Total pagado"" con el monto pagado, la fecha y hora de la operación (ejemplo: ""S/ 361.40 / 12 de marzo de 2026 – 01:00 p.m."").
+Sección ""Descripción de la operación"" con los siguientes datos:
+Operación: tipo (ejemplo: ""Pago de servicio"").
+Servicio: nombre de la empresa (ejemplo: ""Gas Cálidda"").
+Titular: nombre del cliente asociado al suministro (ejemplo: ""Juan Herrera"").
+Número de recibo y monto (ejemplo: ""N° 1000048689 - S/ 361.40"").
+Origen: cuenta de ahorro con los últimos dígitos enmascarados (ejemplo: ""Cuenta Ahorro Soles ** 4567"").
+Botón principal ""Volver al inicio"" en color rojo corporativo que al ser seleccionado navega al Home. 
+Botón o enlace ""Compartir"" que al ser seleccionado permite al cliente compartir el comprobante de pago mediante las opciones disponibles del dispositivo, será compartido en formato imagen PNG. ,  - La lista de empresas disponibles en la app debe corresponder exactamente al listado de convenios vigentes y activos; nunca debe mostrarse una empresa cuyo convenio esté vencido o suspendido. Informaciòn que debe de proveer COBIS. 
+ - La consulta de recibos pendientes se realiza contra el sistema del procesador de pagos intermediario... (Pendiente a definir el proveedor) o se consulta contra el sistema de la empresa de servicios. 
+ - Un pago de servicio exitoso requiere la coordinación simultánea de tres sistemas que pueden fallar independientemente. El core bancario de SURGIR debe debitar la cuenta del cliente. El procesador de pagos intermediario debe transmitir el pago a la empresa de servicios. El sistema de la empresa de servicios debe acreditar el pago y marcar el recibo como pagado. Si el débito en SURGIR es exitoso pero el procesador falla al transmitir el pago, el cliente queda con su dinero debitado pero el recibo sin pagar, lo cual es el error más grave desde la perspectiva del cliente. En este caso el sistema finaliza el proceso sin èxisto mostrando el esiguiente mensaje de error: ""Ocurriò un error en el sistema"". 
+ - El pago de 2 a más recibos en una sola operación introduce una complejidad adicional: Si uno de los recibos se procesa exitosamente y el otro falla se revierte y ningún recibo queda pagado mostrando el siguiente mensaje de error: ""Ocurriò un error en el sistema"".
+ - En caso exista interrupción por falta de conexión y realizo algún evento de click o interacción con la app, el sistema debe mostrar un modal con el mensaje de error  interrumpiendo el proceso, mensaje de error: ""No estás conectado a internet conéctate a una red y vuelve a intentarlo"" y el botón Entendido. Al ser seleccionada esta opción el sistema cierra el modal  y redirige al Login. 
+ - Trazabilidad: El sistema captura las interacciones que tendrá el usuario para determinar las actividades frecuentes del usuario. "
+"Productos, Tipo de Cambio, , HU051 - Tipo de cambio , Cliente activo , Como cliente de SURGIR, quiero realizar operaciones de tipo de cambio (compra y venta de dólares) desde la app móvil, seleccionando el monto, las cuentas de origen y destino, y confirmando la operación de forma segura, para acceder a un tipo de cambio competitivo sin acudir a una agencia o casa de cambio., Acceso y visualización de la vista de tipo de cambio
+ - Dado que accedo al módulo ""Tipo de cambio"" desde el menú principal, el sistema muestra la vista ""Tipo de cambio"" que incluye:
+Indicadores de tipo de cambio vigente con las etiquetas ""Compra S/. XXX"" y ""Venta S/. XXX"" en la parte superior (ejemplo: ""Compra S/. 3.80"" y ""Venta S/. 3.380"") Automáticamente activo en la opción Compra, con posibilidad a cambiar a Venta. 
+Título de la sección: ""¿Cuánto quieres cambiar?"".
+Campo ""Tengo"" con selector de moneda (ejemplo: dólares USD con ícono de bandera) y campo numérico para ingresar el monto a cambiar.
+Campo ""Recibo"" con selector de moneda destino (ejemplo: soles PEN con ícono de bandera) y campo numérico que muestra el monto equivalente calculado automáticamente. 
+Botón ↑↓ Intercambiar moneda entre “Tengo” y “Recibo” Intercambio de monedas. 
+Selector de cuenta de origen ""Desde"" con lista desplegable de cuentas disponibles del cliente (ejemplo: ""Cuenta ahorro 4568 - S/ 190,564.00"").
+Texto informativo: ""Monto máximo por día es S/ XX,000.00 O $ XX,000.00"".
+Botón principal ""Continuar"" inicialmente deshabilitado (gris) mientras no se ingrese un monto válido.
+Botón de retroceso (←) en la parte superior izquierda, que al ser seleccionado me muestra la vista anterior.
+Botón de cierre (X) en la parte superior derecha, que al ser seleccionado me muestra la vista anterior.
+
+Ingreso del monto a cambiar
+ - Dado que selecciono el campo ""Tengo"" en la vista de tipo de cambio, el sistema despliega un teclado numérico en pantalla que incluye los dígitos del 0 al 9, botón de retroceso (←) y botón de confirmación (►).
+ - Dado que ingreso un monto en el campo ""Tengo"" (ejemplo: ""$100.00""), el sistema calcula en tiempo real el equivalente en la moneda destino aplicando el tipo de cambio vigente y lo muestra actualizado en el campo ""Recibo"" (ejemplo: ""S/338.00""). El cálculo considera si la operación es de compra o venta según las monedas seleccionadas.
+ - Dado que el monto ingresado supera el límite máximo permitido por día (ejemplo: S/ 50,000.00), el sistema muestra un mensaje de advertencia informando el monto máximo permitido(PENDIENTE DE DISEÑO) y el botón ""Continuar"" permanece deshabilitado hasta que el monto esté dentro del rango permitido.
+ - Dado que el monto ingresado es válido y está dentro del límite permitido, el botón ""Continuar"" se habilita en color rojo corporativo.
+ - Dado que selecciono el botón ""Continuar"" con un monto válido ingresado, el sistema navega a la vista de selección de destino del cambio.
+
+Selección del destino del cambio (mis cuentas o cuenta SURGIR):
+ - Dado que continué desde el ingreso del monto, el sistema muestra la vista ""Tipo de cambio"" con la sección ""A dónde lo envías"" que incluye:
+Resumen de lo que cambia: Etiquetas ""Lo que cambio"". Tipo de operación (Compra o venta [monto]).
+Indicadores de monto: ""Tengo"" con el monto ingresado (ejemplo: ""S/ 100.00"") y ""Recibo"" con el equivalente calculado (ejemplo: ""S/ 29.71"" o ""S/ 338.00"").
+Selector de destino mediante radio buttons con dos opciones:
+""Mis cuentas"": para transferir el resultado a una cuenta propia del cliente.
+""Cuenta SURGIR"": para enviar a una cuenta SURGIR de otro beneficiario. (CONFIRMACIÓN CON PO)
+Campo ""Destino"" que cambia dinámicamente según la opción seleccionada:
+Si selecciona ""Mis cuentas"": muestra un selector desplegable con las cuentas del cliente disponibles como destino (ejemplo: ""Cuenta SURGIR"").
+Si selecciona ""Cuenta SURGIR"": muestra un campo de texto para ingresar el número de cuenta destino.
+Botón principal ""Continuar"" habilitado en color rojo corporativo cuando el destino esté definido y con los datos ingresados.
+Botón de retroceso (←) que permite volver a la pantalla anterior y botón de cierre (X) que al ser seleccionado, el sistema muestra el modal ""¿Estás seguro de querer salir? Si sales, perderás todo tu progreso"" incluido las opciones ""Continuar"", cerrar (X) que al ser seleccionado el sistema cierra el modal mostrando la vista anterior y el botón ""Si, quiero salir"" que al ser seleccionado el sistema cierra el modal y redirige al home.
+ - Dado que selecciono la opción ""Mis cuentas"", el sistema muestra el selector desplegable con las cuentas propias del cliente disponibles como destino. Al seleccionar una cuenta, el campo ""Destino"" se actualiza con la cuenta elegida.
+ - Dado que selecciono la opción ""Cuenta SURGIR"", el sistema habilita un campo de texto numérico para ingresar el número de cuenta de un tercero. Al seleccionar el campo, el sistema despliega el teclado del dispositivo.
+ - Dado que selecciono ""Continuar"" con el destino configurado, el sistema navega a la vista de confirmación del cambio.
+
+Ingreso de número de cuenta destino (envío a otra cuenta)
+ - Dado que seleccioné la opción ""Cuenta SURGIR"" como destino, el sistema muestra el campo ""Destino"" habilitado para ingreso de texto con placeholder ""Cuenta SURGIR"" y despliega el teclado del dispositivo al seleccionarlo.
+ - Dado que ingreso un número de cuenta válido en el campo ""Destino"" (ejemplo: ""1234 132154689""), el sistema valida el formato del número de cuenta. El botón ""Continuar"" se habilita en color rojo corporativo una vez que el número de cuenta ingresado sea válido.
+ - Dado que el número de cuenta ingresado no existe o es inválido, el sistema muestra un mensaje de error indicando que la cuenta no fue encontrada(pendiente de diseño) y el botón ""Continuar"" permanece deshabilitado.
+Dado que selecciono el ícono de limpiar (X) dentro del campo de destino, el sistema borra el número ingresado y el botón ""Continuar"" se deshabilita nuevamente.
+ - Dado que selecciono ""Continuar"" con un número de cuenta válido ingresado, el sistema navega a la vista de confirmación del cambio 
+
+Confirmación del tipo de cambio
+ - Dado que continué desde la selección de destino, el sistema muestra la vista ""Tipo de cambio"" con el título ""Confirma tu cambio"" que incluye:
+Etiqueta ""Recibes"" con el monto que recibirá el cliente en la moneda destino resaltado en tamaño grande (ejemplo: ""S/338.00"" o ""$29.71"").
+Sección ""Descripción de la operación"" con los siguientes datos:
+Operación: tipo de operación (ejemplo: ""Tipo de cambio"").
+Cambiaras: monto y moneda de origen (ejemplo: ""$100.00"").
+Oeigen: cuenta de origen con los últimos dígitos enmascarados (ejemplo: ""Cuenta Ahorro Dólares ** 4568"").
+Destino: nombre del titular y cuenta destino con los últimos dígitos enmascarados (ejemplo: ""Juan Herrera Sotomayor / Cuenta Ahorro Soles ** 4689"").
+Botón principal ""Continuar"" en color rojo corporativo, habilitado.
+Botón de retroceso (←) que regresa a la vista de selección de destino.
+Botón de cierre (X) en la parte superior derecha que al ser seleccionado, el sistema muestra el modal ""¿Estás seguro de querer salir? Si sales, perderás todo tu progreso"" incluido las opciones ""Continuar"", cerrar (X) que al ser seleccionado el sistema cierra el modal mostrando la vista anterior y el botón ""Si, quiero salir"" que al ser seleccionado el sistema cierra el modal y redirige al home.
+ - Dado que selecciono el botón ""Continuar"", el sistema inicia el proceso de validación y muestra la pantalla de carga con el texto ""Validando..."" mientras procesa la operación. Si la operación es exitosa, navega a la vista de confirmación de cambio exitoso.
+
+Confirmación de tipo de cambio exitoso
+ - Dado que el sistema procesó exitosamente la operación de tipo de cambio, el sistema muestra la vista de confirmación que incluye:
+Logo o marca ""SURGIR"" en la parte superior.
+Ilustración representativa de éxito.
+Título de confirmación: ""¡Cambio exitoso!"" con énfasis visual de color rojo en ""exitoso"".
+Número de operación o referencia de la transacción (ejemplo: ""Ope. N° 99997891234"").
+Etiqueta ""Recibiste"" con el monto recibido en la moneda destino resaltado (ejemplo: ""S/ 338.00"").
+Fecha y hora de la operación (ejemplo: ""12 de marzo de 2026 - 01:00 p.m."").
+Sección ""Descripción de la operación"" con los siguientes datos:
+Operación: tipo de operación (ejemplo: ""Tipo de cambio"").
+Cambiaste: monto y moneda de origen (ejemplo: ""$100.00"").
+Desde: cuenta de origen con los últimos dígitos enmascarados (ejemplo: ""Cuenta Ahorro Dólares ** 4568"").
+Destino: nombre del titular y cuenta destino con los últimos dígitos enmascarados (ejemplo: ""Juan Herrera Sotomayor / Cuenta Ahorro Soles ** 4689"").
+Botón principal ""Volver al inicio"" en color rojo corporativo que al ser seleccionado navega al Home.
+Enlace ""Compartir"" que al ser seleccionado permite al cliente compartir el comprobante de la operación mediante las opciones disponibles del dispositivo en formato imagen PNG.
+Botón de cierre (X) en la parte superior derecha que al ser seleccionado redirige al Home.,  - El tipo de cambio que ofrece SURGIR puede diferir del tipo de cambio interbancario del BCRP dentro de los márgenes establecidos por su política comercial. 
+ - El BCRP establece límites a la posición de cambios que las entidades financieras pueden mantener. Por lo que esto serà gestionado por COBIS. 
+ - El sistema debe tener un mecanismo de control que suspenda automáticamente las operaciones de tipo de cambio digital cuando la posición de cambios de SURGIR se acerque a los límites regulatorios del BCRP o a los límites internos de apetito de riesgo de la institución. Determinado por COBIS, informaciòn que debe venir mediante un flag o algùn indicador. Definir si debe bloquear solo la compra, la venta o ambos. 
+ - Esta suspensión debe comunicarse al cliente con un mensaje claro como ""El servicio de tipo de cambio no está disponible en este momento"" sin revelar los motivos internos.
+ - El tipo de cambio ofrecido en la app debe provenir exclusivamente del sistema de gestión de tipo de cambio de la mesa de dinero o tesorería de SURGIR, por lo que esta informaciòn serà proporcionado por COBIS. 
+ - El tipo de cambio en la app debe actualizarse con una frecuencia mínima definida por tesorería (ej. cada 5 minutos durante horario de mercado activo de 9am a 5pm, y fijo fuera de ese horario con un spread mayor que compense el riesgo de operar con tipo de cambio no actualizado). Esta gestiòn o la actualizaciòn del tipo de cambio debe ser proporcionado por COBIS. 
+ - El flujo de tipo de cambio serà operativo 24/7. 
+ - Las operaciones de tipo de cambio digital pueden fallar por múltiples causas que el sistema debe gestionar de forma diferenciada. Si falla la consulta del tipo de cambio por error técnico en COBIS, el módulo debe deshabilitarse temporalmente y mostrar un mensaje de no disponibilidad; no debe mostrarse un tipo de cambio cacheado o desactualizado porque esto expone a SURGIR a riesgo de mercado.
+ - Si el débito en la cuenta de origen es exitoso pero el crédito en la cuenta destino falla, el sistema debe revertir el débito de forma automática e inmediata sin intervención humana; este escenario de falla parcial es el más crítico desde el punto de vista operativo porque si no se revierte a tiempo el cliente queda con su dinero debitado sin haber recibido los dólares.
+ -  En caso exista interrupción por falta de conexión y realizo algún evento de click o interacción con la app, el sistema debe mostrar un modal con el mensaje de error  interrumpiendo el proceso, mensaje de error: ""No estás conectado a internet conéctate a una red y vuelve a intentarlo"" y el botón Entendido. Al ser seleccionada esta opción el sistema cierra el modal  y redirige al Login. 
+ - Trazabilidad: El sistema captura las interacciones que tendrá el usuario para determinar las actividades frecuentes del usuario. 
+ - Cada empresa de servicios tiene un horario de corte diario para la acreditación de pagos. Los pagos realizados antes del horario de corte se acreditan el mismo día; los realizados después del corte se acreditan el día hábil siguiente. El sistema debe informar al cliente el horario de corte de la empresa específica antes de confirmar el pago, especialmente si el recibo está próximo a vencer ese día. Por ejemplo si el recibo de Gas Calídda vence hoy y el cliente paga a las 6pm pero el horario de corte de Calídda es 4pm, el pago se acreditará mañana y el recibo puede generar mora por un día adicional. Esta información es crítica para evitar reclamos del cliente que pagó antes del vencimiento pero la acreditación llegó tarde. El sistema debe mostrar el horario de corte de cada empresa como parte de la pantalla de selección de recibos o del detalle del pago.
+ - Dependiendo del convenio con cada empresa de servicios, SURGIR puede o no cobrar una comisión al cliente por procesar el pago. La política de comisiones puede ser cero costo para el cliente (el costo lo asume la empresa de servicios), comisión fija por operación, o comisión variable según el monto. Si aplica comisión, esta debe mostrarse de forma transparente en la pantalla de detalle del pago y en el resumen antes de la confirmación, nunca sorprender al cliente con un cargo adicional en el comprobante final.
+ - En caso exista interrupción por falta de conexión y realizo algún evento de click o interacción con la app, el sistema debe mostrar un modal con el mensaje de error  interrumpiendo el proceso, mensaje de error: ""No estás conectado a internet conéctate a una red y vuelve a intentarlo"" y el botón Entendido. Al ser seleccionada esta opción el sistema cierra el modal  y redirige al Login. 
+ - Trazabilidad: El sistema captura las interacciones que tendrá el usuario para determinar las actividades frecuentes del usuario. "
